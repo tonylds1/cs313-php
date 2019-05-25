@@ -1,5 +1,22 @@
 {
+  "name": "cs313/condominium",
+  "description": "CS313 - Web Engineering II - Practices",
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/tonylds1/cs313-php",
+  "authors": [
+    {
+      "name": "Tony Moraes",
+      "email": "tonylds1@byui.edu",
+      "homepage": "https://www.linkedin.com/in/tony-morais/"
+    }
+  ],
   "require": {
     "php": "^7.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "cs313\\HelloWorld\\": "Week01/src",
+      "cs313\\Condominium\\": "Condominium/src"
+    }
   }
 }
