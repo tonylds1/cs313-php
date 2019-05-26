@@ -15,7 +15,7 @@ $matcher = new Routing\Matcher\UrlMatcher($routes, $context);
 
 try {
     $route = extract($matcher->match($request->getPathInfo()), EXTR_SKIP);
-    var_dump($route);
+    var_dump($route); exit;
     ob_start();
     include sprintf(__DIR__.'/../View/%s.php', $route);
 
