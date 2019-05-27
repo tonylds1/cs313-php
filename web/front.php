@@ -14,10 +14,10 @@ $context->fromRequest($request);
 $matcher = new Routing\Matcher\UrlMatcher($routes, $context);
 
 try {
-    $route = extract($matcher->match($request->getPathInfo()), EXTR_SKIP);
-var_dump($route);
+    extract($matcher->match($request->getPathInfo()), EXTR_SKIP);
+
     ob_start();
-    include sprintf(__DIR__.'/../View/%s.php', $route);
+    include sprintf(__DIR__.'/../View/%s.php', $_route);
 
     $response = new Response(ob_get_clean());
 } catch (Routing\Exception\ResourceNotFoundException $exception) {
