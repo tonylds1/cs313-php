@@ -5,6 +5,7 @@ $greetings = [
     'Good Afternoon Visitor',
     'Good Evening Visitor',
 ];
+var_dump($greetings);
 
 $date = new DateTime();
 $hour = (int) $date->format('H');
