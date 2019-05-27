@@ -10,7 +10,7 @@ include '../../Personal/src/personal.php';
     <title>Tony´s Home Page for CS313 Web Engineering II</title>
     <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet"> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:400,700%7CBitter:400,400italic,700&amp;subset=latin,latin" media="all">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../web/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../web/css/style.css">
 </head>
 <body>

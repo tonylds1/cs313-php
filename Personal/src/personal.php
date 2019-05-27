@@ -19,5 +19,3 @@ if ($hour > 18) {
 $statement = 'Hi! I am the server in '. $date->getTimezone()->getName()
     . '. Here it is ' . $date->format('H:i')
     . '. So, ' . $greetings[$index];
-
-include '../../View/PersonalUI/index.php';
