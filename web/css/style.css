@@ -1,0 +1,102 @@
+body {
+    background-color: #F9F4ED !important;
+}
+
+#header {
+    margin: 5px;
+    align-items: left;
+}
+
+#me-img, #me-bra, #me-usa {
+    height: 300px;
+    position: relative;
+}
+
+img {
+    height: 300px;
+}
+
+#me-img {
+    position: absolute;
+    z-index: 10;
+    align-content: center;
+}
+
+#me-bra {
+    position: absolute;
+    right: 18%;
+    z-index: -3;
+    animation-timing-function: ease;
+    animation: toLeft2 1s;
+} 
+
+#me-usa {
+    position: absolute;
+    left:18%;
+    z-index: 3;
+    animation-timing-function: ease;
+    animation: toLeft 1s;
+}
+
+#my-picture {
+    display: flex;
+    height: 300px;
+    align-content: center;
+}
+
+#slogan {
+    z-index: 100;
+    display: flex;
+    border: 0;
+    border-radius: .25em;
+    width: 100%;
+    background: #c66;
+    letter-spacing: .1em;
+    color: #F9F4ED;
+    font-size: 1.7em;
+    margin: -5px;
+    justify-content: center;
+    height: 3em;
+}
+
+#slogan:hover {
+    background: #c76;
+}
+
+#my-name {
+    margin: 15px;
+    font-family: 'Dosis', sans-serif;
+    font-size: 5em;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+}
+
+#my-name:hover {
+    font-size: 6em;
+}
+
+#about-me {
+    margin: 15px;
+    font-family: 'Bitter', sans-serif;
+    font-size: 1.5em;
+}
+hr {
+    border: 0;
+    height: 0.75em;
+    background: #c66;
+    display: block;
+    clear: both;
+    margin: 2em;
+    padding: 0;
+    border-radius: 0.25em;
+}
+
+@keyframes toLeft {
+    from {left: 0px;}
+    to {left: 120px;}
+}
+
+@keyframes toLeft2 {
+    from {left: 0px;}
+    to {left: 180px;}
+}
