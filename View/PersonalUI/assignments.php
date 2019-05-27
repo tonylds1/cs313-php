@@ -6,7 +6,7 @@
     <title>Tony´s Home Page for CS313 Web Engineering II</title>
     <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet"> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:400,700%7CBitter:400,400italic,700&amp;subset=latin,latin" media="all">
-    <link rel="stylesheet" href="../../web/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../web/css/bootstrap.css">
     <link rel="stylesheet" href="../../web/css/style.css">
 </head>
 <body>
