@@ -1,3 +1,7 @@
+<?php
+include '../../Personal/src/personal.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
