@@ -16,7 +16,7 @@ include '../../Personal/src/personal.php';
 <body>
     <div class='container d-flex flex-column col-6  '>
         <div id="header justify-content-end">
-            <a href="assignments.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">See Week Exercices</a>
+            <a href="assignments" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">See Week Exercices</a>
         </div>
         <div id='my-picture'>
             <div id='me-bra'> <img src="../../web/img/me-bra.png" alt="Tony Moraes"></div>

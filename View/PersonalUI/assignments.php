@@ -12,7 +12,7 @@
 <body>
     <div class='container d-flex flex-column col-6  '>
         <div id="header justify-content-end">
-            <a href="/personal" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Back</a>
+            <a href="personal" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Back</a>
         </div>
         
         <div id='my-name' class='align-self-center'>
