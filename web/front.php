@@ -17,8 +17,6 @@ try {
     extract($matcher->match($request->getPathInfo()), EXTR_SKIP);
 
     ob_start();
-    $teste = sprintf(__DIR__.'/../View/%s.php', $_route);
-    var_dump($teste);
     include sprintf(__DIR__.'/../View/%s.php', $_route);
 
     $response = new Response(ob_get_clean());
