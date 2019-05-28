@@ -26,11 +26,11 @@ class AssignmentsController
     public function week05Action(Request $request)
     {
         try {
-            $params = $request->getParams();
+            $query = $request->query();
 
             $response = new StreamedResponse();
-            $response->setCallback(function () {
-                $sharedAreaFilter = new SharedAreaDTO($params['id'] ?? null, $params['name'] ?? null);
+            $response->setCallback(function () use ($query) {
+                $sharedAreaFilter = new SharedAreaDTO($query->get('id'), $query->get('name'));
                 $list = (new SharedAreaList($sharedAreaFilter))->getList();
 
                 include '../View/CondominiumUI/shared-areas.php';
