@@ -5,7 +5,7 @@ use Symfony\Component\Routing;
 $routes = new Routing\RouteCollection();
 $routes->add('CondominiumUI/hello', new Routing\Route('/hello'));
 
-$routes->add('personal_home', new Routing\Route('/personal'),[
+$routes->add('personal_home', new Routing\Route('/personal', [
     '_controller' => 'cs313\Controllers\PersonalController::indexAction'
 ]);
 
