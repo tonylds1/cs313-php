@@ -6,7 +6,7 @@ $routes = new Routing\RouteCollection();
 $routes->add('CondominiumUI/hello', new Routing\Route('/hello'));
 
 $routes->add('personal_home', new Routing\Route('/personal'),[
-    '_controller' => 'Controller\PersonalController::indexAction'
+    '_controller' => 'Controllers\PersonalController::indexAction'
 ]);
 
 $routes->add('PersonalUI/assignments', new Routing\Route('/assignments'));
