@@ -15,7 +15,7 @@
             <a href="assignments" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">See Week Exercices</a>
         </div>
 
-        <div class="justify-content-center">
+        <div class="justify-content-center search-box">
             <form method="post" action="week05">
                 <div class="row">
                     <div class="col">

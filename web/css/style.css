@@ -91,6 +91,10 @@ hr {
     border-radius: 0.25em;
 }
 
+.search-box {
+    margin: 10px;
+}
+
 @keyframes toLeft {
     from {left: 0px;}
     to {left: 120px;}
