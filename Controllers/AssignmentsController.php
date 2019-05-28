@@ -29,7 +29,8 @@ class AssignmentsController
 
             $response = new StreamedResponse();
             $response->setCallback(function () use ($request) {
-                $sharedAreaFilter = new SharedAreaDTO($request->get('id'), $request->get('name'));
+                $id = empty($request->get('id')) ? null : (int) $request->get('id');
+                $sharedAreaFilter = new SharedAreaDTO($id, $request->get('name'));
                 $list = (new SharedAreaList($sharedAreaFilter))->getList();
 
                 include '../View/CondominiumUI/shared-areas.php';
