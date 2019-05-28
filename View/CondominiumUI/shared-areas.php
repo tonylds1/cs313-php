@@ -16,6 +16,8 @@
         </div>
 
         <div class="justify-content-center search-box">
+            <h1>SHARED AREAS</h1>
+            <p>List all the shared areas added.</p>
             <form method="post" action="week05">
                 <div class="row">
                     <div class="col">
