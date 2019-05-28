@@ -19,10 +19,10 @@
             <form method="post" action="week05">
                 <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="ID">
+                        <input type="text" class="form-control" name='id' placeholder="ID">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Description">
+                        <input type="text" class="form-control" name='name' placeholder="Description">
                     </div>
                     <div class="col">
                         <button type="submit" class="btn btn-primary">Search</button>
