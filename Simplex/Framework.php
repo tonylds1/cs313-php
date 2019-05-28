@@ -28,12 +28,12 @@ class Framework
     public function handle(Request $request)
     {
         $this->matcher->getContext()->fromRequest($request);
-
+        var_dump($request->getPathInfo()); exit;
         try {
             $request->attributes->add($this->matcher->match($request->getPathInfo()));
 
             $controller = $this->controllerResolver->getController($request);
-            var_dump($controller); exit;
+
             $arguments = $this->argumentResolver->getArguments($request, $controller);
 
             return call_user_func_array($controller, $arguments);
