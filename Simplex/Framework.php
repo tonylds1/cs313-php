@@ -28,7 +28,7 @@ class Framework
     public function handle(Request $request)
     {
         $this->matcher->getContext()->fromRequest($request);
-        var_dump($request->getPathInfo()); exit;
+
         try {
             $request->attributes->add($this->matcher->match($request->getPathInfo()));
 
