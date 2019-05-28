@@ -7,6 +7,7 @@ use cs313\Condominium\Model\SharedArea\SharedAreaDTO;
 use cs313\Condominium\Model\SharedArea\SharedAreaList;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class AssignmentsController
 {
@@ -24,18 +25,18 @@ class AssignmentsController
 
     public function week05Action(Request $request)
     {
-        var_dump('teste'); exit;
+
         $params = $request->getParams();
 
-        $sharedAreaFilter = new SharedAreaDTO($params['id'] ?? null , $params['name'] ?? null);
-        ob_start();
+        $response = new StreamedResponse();
+        $response->setCallback(function () {
+            $sharedAreaFilter = new SharedAreaDTO($params['id'] ?? null , $params['name'] ?? null);
+            $list = (new SharedAreaList($sharedAreaFilter))->getList();
 
-        $list = (new SharedAreaList($sharedAreaFilter))->getList();
-        include '../View/CondominiumUI/shared-areas.php';
+            include '../View/CondominiumUI/shared-areas.php';
+            flush();
+        });
 
-        $page = ob_get_clean();
-
-        $response = new Response($page);
         $response->send();
     }
 }
