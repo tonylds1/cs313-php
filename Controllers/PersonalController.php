@@ -9,6 +9,7 @@ class PersonalController
 {
     public function indexAction(Request $request)
     {
+        var_dump('I am here');
         $response = new Response(include '../View/PersonalUI/index.php');
         $response->send();
     }
