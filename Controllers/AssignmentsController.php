@@ -24,6 +24,7 @@ class AssignmentsController
 
     public function week05Action(Request $request)
     {
+        var_dump('teste'); exit;
         $params = $request->getParams();
 
         $sharedAreaFilter = new SharedAreaDTO($params['id'] ?? null , $params['name'] ?? null);
