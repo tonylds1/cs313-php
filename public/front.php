@@ -6,7 +6,7 @@ use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\Routing;
 
 $request = Request::createFromGlobals();
-$routes = include __DIR__.'/../Application/app.php';
+$routes = include __DIR__ . '/../Application/app.php';
 
 $context = new Routing\RequestContext();
 $matcher = new Routing\Matcher\UrlMatcher($routes, $context);
