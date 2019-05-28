@@ -21,7 +21,7 @@ class SharedAreaList
         }
 
         if ($filter->getName()) {
-            $sql .= ' and ds_name like %'. $filter->getName() . '%';
+            $sql .= ' and ds_name like \'%'. $filter->getName() . '%\'';
         }
 
         $statement = $db->prepare($sql);
