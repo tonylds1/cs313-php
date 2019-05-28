@@ -24,6 +24,9 @@
                     <div class="col">
                         <input type="text" class="form-control" placeholder="Description">
                     </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
                 </div>
             </form>
         </div>
