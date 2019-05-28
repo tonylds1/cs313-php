@@ -10,7 +10,7 @@ class SharedAreaList
 {
     private $list;
 
-    public function __construct(SharedArea $filter)
+    public function __construct(SharedAreaDTO $filter)
     {
         $db = (new Persistence())->getConection();
 
