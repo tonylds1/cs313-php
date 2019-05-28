@@ -14,9 +14,26 @@
         <div id="header justify-content-end">
             <a href="assignments" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">See Week Exercices</a>
         </div>
+
+        <div class="justify-content-center">
+            <form method="post" action="week05">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="ID">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Description">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="justify-content-center">
+            <ul>
         <?php foreach ($list as $sharedArea): ?>
             <li><?=$sharedArea->getId();?> - <?=$sharedArea->getName();?></li>
         <?php endforeach; ?>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
