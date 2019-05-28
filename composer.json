@@ -19,6 +19,7 @@
   "autoload": {
     "psr-4": {
       "Simplex\\": "Simplex",
+      "cs313\\Controllers\\": "Controllers",
       "cs313\\HelloWorld\\": "Week01/src",
       "cs313\\Condominium\\": "Condominium/src"
     }
