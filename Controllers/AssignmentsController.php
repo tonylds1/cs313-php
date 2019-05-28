@@ -25,18 +25,21 @@ class AssignmentsController
 
     public function week05Action(Request $request)
     {
+        try {
+            $params = $request->getParams();
 
-        $params = $request->getParams();
+            $response = new StreamedResponse();
+            $response->setCallback(function () {
+                $sharedAreaFilter = new SharedAreaDTO($params['id'] ?? null, $params['name'] ?? null);
+                $list = (new SharedAreaList($sharedAreaFilter))->getList();
 
-        $response = new StreamedResponse();
-        $response->setCallback(function () {
-            $sharedAreaFilter = new SharedAreaDTO($params['id'] ?? null , $params['name'] ?? null);
-            $list = (new SharedAreaList($sharedAreaFilter))->getList();
+                include '../View/CondominiumUI/shared-areas.php';
+                flush();
+            });
 
-            include '../View/CondominiumUI/shared-areas.php';
-            flush();
-        });
-
-        $response->send();
+            $response->send();
+        } catch (\Throwable $t) {
+          var_dump($t); die;
+        }
     }
 }
