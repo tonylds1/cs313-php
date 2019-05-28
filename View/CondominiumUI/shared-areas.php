@@ -1,24 +1,3 @@
-<?php
-$greetings = [
-    'Good Morning Visitor',
-    'Good Afternoon Visitor',
-    'Good Evening Visitor',
-];
-
-$date = new DateTime();
-$hour = (int) $date->format('H');
-$index = 0;
-if ($hour > 18) {
-    $index = 2;
-} else if ($hour > 12) {
-    $index = 1;
-}
-
-$statement = 'Hi! I am the server in '. $date->getTimezone()->getName()
-    . '. Here it is ' . $date->format('H:i')
-    . '. So, ' . $greetings[$index];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +14,9 @@ $statement = 'Hi! I am the server in '. $date->getTimezone()->getName()
         <div id="header justify-content-end">
             <a href="assignments" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">See Week Exercices</a>
         </div>
-
+        <?php foreach ($list as $sharedArea): ?>
+            <li><?=$sharedArea->getId();?> - <?=$sharedArea->getName();?></li>
+        <?php endforeach; ?>
     </div>
 </body>
 </html>

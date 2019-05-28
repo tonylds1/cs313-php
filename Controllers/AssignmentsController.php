@@ -2,6 +2,9 @@
 
 namespace cs313\Controllers;
 
+use cs313\Condominium\Model\SharedArea\SharedArea;
+use cs313\Condominium\Model\SharedArea\SharedAreaDTO;
+use cs313\Condominium\Model\SharedArea\SharedAreaList;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -21,7 +24,17 @@ class AssignmentsController
 
     public function week05Action(Request $request)
     {
-        $response = new Response(include '../View/CondominiumUI/shared-areas.php');
+        $params = $request->getParams();
+
+        $sharedAreaFilter = new SharedAreaDTO($params['id'] ?? null , $params['name'] ?? null);
+        ob_start();
+
+        $list = (new SharedAreaList($sharedAreaFilter))->getList();
+        include '../View/CondominiumUI/shared-areas.php';
+
+        $page = ob_get_clean();
+
+        $response = new Response($page);
         $response->send();
     }
 }
