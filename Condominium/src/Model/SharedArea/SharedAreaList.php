@@ -28,7 +28,7 @@ class SharedAreaList
         $statement->execute();
 
         $result = [];
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+        while ($row = $statement->fetch(\PDO::FETCH_ASSOC))
         {
             $result[] = new SharedArea($row['id'], $row['ds_name']);
         }
