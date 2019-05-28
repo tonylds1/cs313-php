@@ -41,6 +41,8 @@ class Framework
             return new Response('Not Found', 404);
         } catch (\Exception $exception) {
             return new Response('An error occurred', 500);
+        } catch (\Throwable $t) {
+            var_dump($t); exit;
         }
     }
 }
