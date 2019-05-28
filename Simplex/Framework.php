@@ -33,7 +33,7 @@ class Framework
             $request->attributes->add($this->matcher->match($request->getPathInfo()));
 
             $controller = $this->controllerResolver->getController($request);
-            var_dump($controller); die;
+            var_dump($controller, $request); die;
             $arguments = $this->argumentResolver->getArguments($request, $controller);
             return call_user_func_array($controller, $arguments);
         } catch (ResourceNotFoundException $exception) {
