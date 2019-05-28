@@ -30,8 +30,6 @@ class Framework
         $this->matcher->getContext()->fromRequest($request);
 
         try {
-            $teste = $this->matcher->match($request->getPathInfo());
-            var_dump($teste); die;
             $request->attributes->add($this->matcher->match($request->getPathInfo()));
 
             $controller = $this->controllerResolver->getController($request);
