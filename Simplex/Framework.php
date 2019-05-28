@@ -40,7 +40,7 @@ class Framework
         } catch (ResourceNotFoundException $exception) {
             return new Response('Not Found', 404);
         } catch (\Exception $exception) {
-            var_dump($exception->getMessage()); exit;
+            var_dump($exception); exit;
             return new Response('An error occurred', 500);
         }
     }
