@@ -18,7 +18,7 @@ function render_template(Request $request)
 }
 
 $request = Request::createFromGlobals();
-$routes = include __DIR__.'/../src/app.php';
+$routes = include __DIR__.'/../Application/app.php';
 
 $context = new Routing\RequestContext();
 $matcher = new Routing\Matcher\UrlMatcher($routes, $context);
