@@ -58,5 +58,7 @@ class SharedAreaRepository extends Repository implements SharedAreaRepositoryInt
         if ($row) {
             return new SharedArea($row['id'], $row['ds_name']);
         }
+
+        return null;
     }
 }
