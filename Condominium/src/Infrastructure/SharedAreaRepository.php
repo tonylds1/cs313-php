@@ -45,16 +45,16 @@ class SharedAreaRepository extends Repository implements SharedAreaRepositoryInt
         return current($this->findAll($filter));
     }
 
-
-    public function findById(int $id): SharedArea
+    /**
+     * @param int $id
+     * @return SharedArea|null
+     */
+    public function findById(int $id): ?SharedArea
     {
         $sql = 'SELECT * FROM condominium.shared_area where id = '. $id;
         $statement = $this->executeStatement($sql);
         $row = $statement->fetch(\PDO::FETCH_ASSOC);
-        var_dump($row); exit;
-//        $result = [];
-//        while ()
-//        {
-//            $result[] = new SharedArea($row['id'], $row['ds_name']);
+
+        return new SharedArea($row['id'], $row['ds_name']);
     }
 }

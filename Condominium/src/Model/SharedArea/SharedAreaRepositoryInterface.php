@@ -6,5 +6,5 @@ interface SharedAreaRepositoryInterface
 {
     public function findAll(SharedAreaDTO $filter): array;
     public function findOne(SharedAreaDTO $filter): ?SharedArea;
-    public function findById(int $id): SharedArea;
+    public function findById(int $id): ?SharedArea;
 }
