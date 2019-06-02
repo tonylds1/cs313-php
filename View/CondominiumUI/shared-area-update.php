@@ -18,15 +18,9 @@
         <div class="justify-content-center search-box">
             <h1>UPDATE SHARED AREA</h1>
 
-            <form id="new-shared-area" method="post" action="shared-area">
+            <form id="new-shared-area" method="post" action="shared-area/save/<?=$sharedArea->getId(); ?>">
                 <div class="row">
                     <div class="col">
-                        <?php
-                            if ($sharedArea->getId()) {
-                                echo "<input type='hidden' value='$sharedArea->getId()'>";
-                            }
-                        ?>
-
                         <input type="text" class="form-control" name='name' placeholder="Description"
                         value="<?=$sharedArea->getName(); ?>">
                     </div>

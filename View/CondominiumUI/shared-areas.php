@@ -48,7 +48,7 @@
         <div class="justify-content-center search-box">
             <h1>NEW SHARED AREA</h1>
 
-            <form id="new-shared-area" method="post" action="shared-area">
+            <form id="new-shared-area" method="post" action="shared-area/save">
                 <div class="row">
                     <div class="col">
                         <input type="text" class="form-control" name='name' placeholder="Description">
