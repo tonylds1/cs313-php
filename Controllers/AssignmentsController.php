@@ -32,7 +32,7 @@ class AssignmentsController
             $response->setCallback(function () use ($request) {
                 $id = empty($request->get('id')) ? null : (int) $request->get('id');
                 $sharedAreaFilter = new SharedAreaDTO($id, $request->get('name'));
-                var_dump($sharedAreaFilter); exit;
+
                 $repository = new SharedAreaRepository();
                 $list = (new SharedAreaList($sharedAreaFilter, $repository))->getList();
                 include '../View/CondominiumUI/shared-areas.php';
