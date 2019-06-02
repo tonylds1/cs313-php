@@ -27,7 +27,7 @@ class SharedAreaRepository extends Repository implements SharedAreaRepositoryInt
 
         $statement = $this->executeStatement($sql);
 
-        $result = $statement->fetchAll(\PDO::FETCH_CLASS, SharedArea::class);
+        $result = $statement->fetchAll(\PDO::FETCH_CLASS);
         var_dump($result);
         exit;
         $result = [];
