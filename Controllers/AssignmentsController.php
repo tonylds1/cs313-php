@@ -51,7 +51,7 @@ class AssignmentsController
             $response = new StreamedResponse();
             $response->setCallback(function () use ($request) {
                 $id = empty($request->get('id')) ? null : (int) $request->get('id');
-                $sharedarea = (new SharedAreaRepository())->findById($id);
+                $sharedArea = (new SharedAreaRepository())->findById($id);
 
                 include '../View/CondominiumUI/shared-area.php';
                 flush();
