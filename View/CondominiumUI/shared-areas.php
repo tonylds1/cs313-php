@@ -36,7 +36,7 @@
             <ul>
         <?php foreach ($list as $sharedArea): ?>
             <li>
-                <a href="/shared-area/<?=$sharedArea->getId(); ?>">
+                <a href="/front.php/shared-area/<?=$sharedArea->getId(); ?>">
                     <?=$sharedArea->getId();?> - <?=$sharedArea->getName();?>
                 </a>
             </li>
