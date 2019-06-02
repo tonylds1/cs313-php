@@ -35,7 +35,11 @@
         <div class="justify-content-center">
             <ul>
         <?php foreach ($list as $sharedArea): ?>
-            <li><?=$sharedArea->getId();?> - <?=$sharedArea->getName();?></li>
+            <li>
+                <a href="/shared-area/<?=$sharedArea->getId(); ?>">
+                    <?=$sharedArea->getId();?> - <?=$sharedArea->getName();?>
+                </a>
+            </li>
         <?php endforeach; ?>
             </ul>
         </div>
