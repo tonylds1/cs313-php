@@ -16,7 +16,7 @@ class SharedAreaRepository extends Repository implements SharedAreaRepositoryInt
     public function findAll(SharedAreaDTO $filter): array
     {
         $sql = 'SELECT * FROM condominium.shared_area where id is not null';
-var_dump($sql); die;
+
         if ($filter->getId()) {
             $sql .= ' and id = ' . $filter->getId();
         }

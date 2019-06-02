@@ -33,6 +33,7 @@ class AssignmentsController
                 $id = empty($request->get('id')) ? null : (int) $request->get('id');
                 $sharedAreaFilter = new SharedAreaDTO($id, $request->get('name'));
                 $repository = new SharedAreaRepository();
+                var_dump($repository); exit;
                 $list = (new SharedAreaList($sharedAreaFilter, $repository))->getList();
                 include '../View/CondominiumUI/shared-areas.php';
                 flush();
