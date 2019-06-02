@@ -20,23 +20,19 @@ $routes->add('week05', new Routing\Route('/week05',[
 ]));
 
 $routes->add('sharedArea', new Routing\Route('/shared-area/{id}',[
-    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaAction',
-    '_method' => 'GET'
+    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaAction'
 ]));
 
 $routes->add('sharedAreaDelete', new Routing\Route('/shared-area/delete{id}',[
-    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaDeleteAction',
-    '_method' => 'GET'
+    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaDeleteAction'
 ]));
 
 $routes->add('sharedAreaUpdate', new Routing\Route('/shared-area/update/{id}',[
-    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaUpdateAction',
-    '_method' => 'GET'
+    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaUpdateAction'
 ]));
 
 $routes->add('sharedAreaSave', new Routing\Route('/shared-area/',[
-    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaSaveAction',
-    '_method' => 'POST'
-]));
+    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaSaveAction'
+]), [], [], '', [],['POST']);
 
 return $routes;
