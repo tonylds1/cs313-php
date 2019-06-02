@@ -2,6 +2,7 @@
 
 namespace cs313\Controllers;
 
+use cs313\Condominium\Infrastructure\SharedAreaRepository;
 use cs313\Condominium\Model\SharedArea\SharedArea;
 use cs313\Condominium\Model\SharedArea\SharedAreaDTO;
 use cs313\Condominium\Model\SharedArea\SharedAreaList;
@@ -31,7 +32,8 @@ class AssignmentsController
             $response->setCallback(function () use ($request) {
                 $id = empty($request->get('id')) ? null : (int) $request->get('id');
                 $sharedAreaFilter = new SharedAreaDTO($id, $request->get('name'));
-                $list = (new SharedAreaList($sharedAreaFilter))->getList();
+                $repository = new SharedAreaRepository();
+                $list = (new SharedAreaList($sharedAreaFilter, $repository))->getList();
 
                 include '../View/CondominiumUI/shared-areas.php';
                 flush();
