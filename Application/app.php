@@ -34,7 +34,7 @@ $routes->add('sharedAreaUpdate', new Routing\Route('/shared-area/update/{id}',[
     '_method' => 'GET'
 ]));
 
-$routes->add('sharedAreaSave', new Routing\Route('/shared-area/{id}',[
+$routes->add('sharedAreaSave', new Routing\Route('/shared-area/',[
     '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaSaveAction',
     '_method' => 'POST'
 ]));

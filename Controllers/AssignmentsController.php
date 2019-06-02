@@ -49,7 +49,7 @@ class AssignmentsController
     public function sharedAreaAction(Request $request)
     {
         try {
-
+var_dump('não era pra estar aqui'); exit;
             $response = new StreamedResponse();
             $response->setCallback(function () use ($request) {
                 $id = empty($request->get('id')) ? null : (int) $request->get('id');
