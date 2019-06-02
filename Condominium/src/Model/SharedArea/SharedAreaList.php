@@ -10,9 +10,7 @@ class SharedAreaList
 
     public function __construct(SharedAreaDTO $filter, SharedAreaRepositoryInterface $repository)
     {
-        $result = $repository->findAll($filter);
-
-        $this->list = $result;
+        $this->list = $repository->findAll($filter);
     }
 
     public function getList()

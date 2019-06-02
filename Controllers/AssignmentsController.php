@@ -34,7 +34,7 @@ class AssignmentsController
                 $sharedAreaFilter = new SharedAreaDTO($id, $request->get('name'));
                 $repository = new SharedAreaRepository();
                 $list = (new SharedAreaList($sharedAreaFilter, $repository))->getList();
-
+var_dump($list); die;
                 include '../View/CondominiumUI/shared-areas.php';
                 flush();
             });
