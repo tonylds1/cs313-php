@@ -2,10 +2,33 @@
 
 namespace cs313\Condominium\Infrastructure;
 
-
-class Persistence
+abstract class Repository
 {
-    public function getConection()
+    public function findAll(string $sql, string $entity)
+    {
+        $statement = $this->executeStatement($sql);
+
+        return $statement->fetchAll(\PDO::FETCH_CLASS, $entity);
+    }
+
+    public function findOne(string $sql, string $entity)
+    {
+        $statement = $this->executeStatement($sql);
+
+        return $statement->fetch(\PDO::FETCH_CLASS, $entity);
+    }
+
+    private function executeStatement(string $sql)
+    {
+        $db = $this->getConection();
+
+        $statement = $db->prepare($sql);
+        $statement->execute();
+
+        return $statement;
+    }
+
+    private function getConection()
     {
         try {
             $dbUrl = getenv('DATABASE_URL');
@@ -26,5 +49,4 @@ class Persistence
             exit;
         }
     }
-
 }
