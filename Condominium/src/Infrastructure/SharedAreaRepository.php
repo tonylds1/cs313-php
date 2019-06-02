@@ -11,9 +11,9 @@ class SharedAreaRepository extends Repository implements SharedAreaRepositoryInt
 {
     /**
      * @param SharedAreaDTO $filter
-     * @return array|\cs313\Condominium\Model\SharedArea\SharedAreaList|void
+     * @return array
      */
-    public function findAll(SharedAreaDTO $filter): SharedAreaList
+    public function findAll(SharedAreaDTO $filter): array
     {
         $sql = 'SELECT * FROM condominium.shared_area where id is not null';
 
@@ -27,19 +27,22 @@ class SharedAreaRepository extends Repository implements SharedAreaRepositoryInt
 
         $statement = $this->executeStatement($sql);
 
-        $result = $statement->fetchAll(\PDO::FETCH_CLASS);
-        var_dump($result);
-        exit;
         $result = [];
         while ($row = $statement->fetch(\PDO::FETCH_ASSOC))
         {
             $result[] = new SharedArea($row['id'], $row['ds_name']);
         }
+
+        return $result;
     }
 
-    public function findOne(SharedAreaDTO $filter): SharedArea
+    /**
+     * @param SharedAreaDTO $filter
+     * @return SharedArea|null
+     */
+    public function findOne(SharedAreaDTO $filter): ?SharedArea
     {
-        // TODO: Implement findOne() method.
+        return current($this->findAll($filter));
     }
 
 
