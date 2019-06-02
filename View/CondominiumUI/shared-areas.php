@@ -32,6 +32,7 @@
                 </div>
             </form>
         </div>
+
         <div class="justify-content-center">
             <ul>
         <?php foreach ($list as $sharedArea): ?>
@@ -42,6 +43,21 @@
             </li>
         <?php endforeach; ?>
             </ul>
+        </div>
+
+        <div class="justify-content-center search-box">
+            <h1>NEW SHARED AREA</h1>
+
+            <form id="new-shared-area" method="post" action="shared-area">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" name='name' placeholder="Description">
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </body>

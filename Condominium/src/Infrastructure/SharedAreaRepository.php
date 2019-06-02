@@ -81,4 +81,16 @@ class SharedAreaRepository extends Repository implements SharedAreaRepositoryInt
         
         $this->executeStatement($sql);
     }
+
+    public function insert(SharedAreaDTO $sharedAreaDTO)
+    {
+        if (!$sharedAreaDTO->getName()) {
+            return;
+        }
+
+        $sql = 'INSERT INTO condominium.shared_area '.
+            '(ds_name) VALUES ('.$sharedAreaDTO->getName().')';
+
+        $this->executeStatement($sql);
+    }
 }

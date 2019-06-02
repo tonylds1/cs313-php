@@ -9,6 +9,7 @@ use cs313\Condominium\Model\SharedArea\SharedAreaList;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\Routing\Tests\Fixtures\AnnotationFixtures\AbstractClassController;
 
 class AssignmentsController
 {
@@ -79,10 +80,16 @@ class AssignmentsController
     public function sharedAreaUpdateAction(Request $request)
     {
         try {
-            $id = empty($request->get('id')) ? null : (int) $request->get('id');
-            (new SharedAreaRepository())->delete($id);
+            $response = new StreamedResponse();
+            $response->setCallback(function () use ($request) {
+                $id = empty($request->get('id')) ? null : (int) $request->get('id');
+                $sharedArea = (new SharedAreaRepository())->findById($id);
 
-            $this->week05Action();
+                include '../View/CondominiumUI/shared-area-update.php';
+                flush();
+            });
+
+            $response->send();
         } catch (\Throwable $t) {
             var_dump($t); die;
         }
@@ -92,7 +99,13 @@ class AssignmentsController
     {
         try {
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
-            (new SharedAreaRepository())->delete($id);
+
+            $sharedArea = new SharedAreaDTO($id, $request->get('name'));
+            if ($id) {
+                (new SharedAreaRepository())->update($sharedArea);
+            } else {
+                (new SharedAreaRepository())->insert($sharedArea);
+            }
 
             $this->week05Action();
         } catch (\Throwable $t) {
