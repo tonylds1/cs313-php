@@ -101,6 +101,7 @@ class AssignmentsController
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
 
             $sharedArea = new SharedAreaDTO($id, $request->get('name'));
+            var_dump($sharedArea);
             if ($id) {
                 (new SharedAreaRepository())->update($sharedArea);
             } else {
