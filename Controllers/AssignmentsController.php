@@ -75,4 +75,28 @@ class AssignmentsController
             var_dump($t); die;
         }
     }
+
+    public function sharedAreaUpdateAction(Request $request)
+    {
+        try {
+            $id = empty($request->get('id')) ? null : (int) $request->get('id');
+            (new SharedAreaRepository())->delete($id);
+
+            $this->week05Action();
+        } catch (\Throwable $t) {
+            var_dump($t); die;
+        }
+    }
+
+    public function sharedAreaSaveAction(Request $request)
+    {
+        try {
+            $id = empty($request->get('id')) ? null : (int) $request->get('id');
+            (new SharedAreaRepository())->delete($id);
+
+            $this->week05Action();
+        } catch (\Throwable $t) {
+            var_dump($t); die;
+        }
+    }
 }
