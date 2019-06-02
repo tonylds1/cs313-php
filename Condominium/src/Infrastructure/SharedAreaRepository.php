@@ -30,6 +30,11 @@ class SharedAreaRepository extends Repository implements SharedAreaRepositoryInt
         $result = $statement->fetchAll(\PDO::FETCH_CLASS, SharedArea::class);
         var_dump($result);
         exit;
+        $result = [];
+        while ($row = $statement->fetch(\PDO::FETCH_ASSOC))
+        {
+            $result[] = new SharedArea($row['id'], $row['ds_name']);
+        }
     }
 
     public function findOne(SharedAreaDTO $filter): SharedArea
