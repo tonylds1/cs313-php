@@ -43,4 +43,23 @@ class AssignmentsController
           var_dump($t); die;
         }
     }
+
+    public function sharedAreaAction(Request $request)
+    {
+        try {
+
+            $response = new StreamedResponse();
+            $response->setCallback(function () use ($request) {
+                $id = empty($request->get('id')) ? null : (int) $request->get('id');
+                $sharedarea = (new SharedAreaRepository())->findById($id);
+var_dump($sharedarea); exit;
+                include '../View/CondominiumUI/shared-areas.php';
+                flush();
+            });
+
+            $response->send();
+        } catch (\Throwable $t) {
+            var_dump($t); die;
+        }
+    }
 }

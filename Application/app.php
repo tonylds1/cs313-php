@@ -19,4 +19,9 @@ $routes->add('week05', new Routing\Route('/week05',[
     '_controller' => 'cs313\Controllers\AssignmentsController::week05Action'
 ]));
 
+$routes->add('sharedArea', new Routing\Route('/shared-area/{id}',[
+    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaAction',
+    '_method' => 'GET'
+]));
+
 return $routes;
