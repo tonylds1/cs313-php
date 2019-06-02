@@ -4,21 +4,11 @@ namespace cs313\Condominium\Infrastructure;
 
 abstract class Repository
 {
-    public function findAll(string $sql, string $entity)
-    {
-        $statement = $this->executeStatement($sql);
-
-        return $statement->fetchAll(\PDO::FETCH_CLASS, $entity);
-    }
-
-    public function findOne(string $sql, string $entity)
-    {
-        $statement = $this->executeStatement($sql);
-
-        return $statement->fetch(\PDO::FETCH_CLASS, $entity);
-    }
-
-    private function executeStatement(string $sql)
+    /**
+     * @param string $sql
+     * @return bool|\PDOStatement
+     */
+    protected function executeStatement(string $sql)
     {
         $db = $this->getConection();
 
@@ -28,7 +18,7 @@ abstract class Repository
         return $statement;
     }
 
-    private function getConection()
+    protected function getConection()
     {
         try {
             $dbUrl = getenv('DATABASE_URL');

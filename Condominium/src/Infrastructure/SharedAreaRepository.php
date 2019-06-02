@@ -2,51 +2,44 @@
 
 namespace cs313\Condominium\Infrastructure;
 
-abstract class Repository
+use cs313\Condominium\Model\SharedArea\SharedArea;
+use cs313\Condominium\Model\SharedArea\SharedAreaDTO;
+use cs313\Condominium\Model\SharedArea\SharedAreaList;
+use cs313\Condominium\Model\SharedArea\SharedAreaRepositoryInterface;
+
+class SharedAreaRepository extends Repository implements SharedAreaRepositoryInterface
 {
-    public function findAll(string $sql, string $entity)
+    /**
+     * @param SharedAreaDTO $filter
+     * @return array|\cs313\Condominium\Model\SharedArea\SharedAreaList|void
+     */
+    public function findAll(SharedAreaDTO $filter): SharedAreaList
     {
-        $statement = $this->executeStatement($sql);
+        $sql = 'SELECT * FROM condominium.shared_area where id is not null';
 
-        return $statement->fetchAll(\PDO::FETCH_CLASS, $entity);
-    }
-
-    public function findOne(string $sql, string $entity)
-    {
-        $statement = $this->executeStatement($sql);
-
-        return $statement->fetch(\PDO::FETCH_CLASS, $entity);
-    }
-
-    private function executeStatement(string $sql)
-    {
-        $db = $this->getConection();
-
-        $statement = $db->prepare($sql);
-        $statement->execute();
-
-        return $statement;
-    }
-
-    private function getConection()
-    {
-        try {
-            $dbUrl = getenv('DATABASE_URL');
-
-            $dbopts = parse_url($dbUrl);
-            $dbHost = $dbopts["host"];
-            $dbPort = $dbopts["port"];
-            $dbUser = $dbopts["user"];
-            $dbPassword = $dbopts["pass"];
-            $dbName = ltrim($dbopts["path"],'/');
-
-            $db = new \PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-            $db->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION );
-
-            return $db;
-        } catch (\PDOException $ex) {
-            echo $ex->getMessage();
-            exit;
+        if ($filter->getId()) {
+            $sql .= ' and id = ' . $filter->getId();
         }
+
+        if ($filter->getName()) {
+            $sql .= ' and ds_name like \'%' . $filter->getName() . '%\'';
+        }
+
+        $statement = $this->executeStatement($sql);
+
+        $result = $statement->fetchAll(\PDO::FETCH_CLASS, SharedArea::class);
+        var_dump($result);
+        exit;
+    }
+
+    public function findOne(SharedAreaDTO $filter): SharedArea
+    {
+        // TODO: Implement findOne() method.
+    }
+
+
+    public function findById(int $id): SharedArea
+    {
+        // TODO: Implement findById() method.
     }
 }

@@ -12,17 +12,8 @@ class SharedAreaList
 
     public function __construct(SharedAreaDTO $filter)
     {
-        $db = (new Persistence())->getConection();
 
-        $sql = 'SELECT * FROM condominium.shared_area where id is not null';
-
-        if ($filter->getId()) {
-            $sql .= ' and id = '. $filter->getId();
-        }
-
-        if ($filter->getName()) {
-            $sql .= ' and ds_name like \'%'. $filter->getName() . '%\'';
-        }
+        $
 
         $statement = $db->prepare($sql);
         $statement->execute();
