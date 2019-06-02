@@ -55,6 +55,8 @@ class SharedAreaRepository extends Repository implements SharedAreaRepositoryInt
         $statement = $this->executeStatement($sql);
         $row = $statement->fetch(\PDO::FETCH_ASSOC);
 
-        return new SharedArea($row['id'], $row['ds_name']);
+        if ($row) {
+            return new SharedArea($row['id'], $row['ds_name']);
+        }
     }
 }
