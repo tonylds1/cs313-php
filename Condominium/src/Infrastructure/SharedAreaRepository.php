@@ -61,4 +61,24 @@ class SharedAreaRepository extends Repository implements SharedAreaRepositoryInt
 
         return null;
     }
+
+    public function delete(int $id)
+    {
+        $sql = 'Delete from condominium.shared_area where id = '. $id;
+        $this->executeStatement($sql);
+    }
+
+    public function update(SharedAreaDTO $sharedAreaDTO)
+    {
+        if (!$sharedAreaDTO->getName()) {
+            return;
+        }
+
+        $sql = 'UPDATE condominium.shared_area '.
+            'SET ds_name = '. $sharedAreaDTO->getName().
+            'WHERE id = '. $sharedAreaDTO->getId()
+        ;
+        
+        $this->executeStatement($sql);
+    }
 }
