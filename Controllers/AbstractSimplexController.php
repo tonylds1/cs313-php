@@ -6,11 +6,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 abstract class AbstractSimplexController
 {
-    protected function render(string $route, \stdClass $object = null)
+    protected function render(string $path, \stdClass $object = null)
     {
         extract($object, EXTR_SKIP);
+        $teste = sprintf(__DIR__ . '../View/%s.php', $path);
+        var_dump($teste); exit;
         ob_start();
-        include sprintf(__DIR__ . '../View/%s.php', $route);
+        include sprintf(__DIR__ . '../View/%s.php', $path);
 
         return new Response(ob_get_clean());
     }
