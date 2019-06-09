@@ -94,9 +94,8 @@ class AssignmentsController extends AbstractSimplexController
     {
         try {
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
-
-            var_dump($id); exit;
             $sharedArea = new SharedAreaDTO($id, $request->get('name'));
+
             if ($id) {
                 (new SharedAreaRepository())->update($sharedArea);
             } else {
