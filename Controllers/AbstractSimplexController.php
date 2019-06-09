@@ -2,7 +2,7 @@
 
 namespace cs313\Controllers;
 
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 abstract class AbstractSimplexController
 {
