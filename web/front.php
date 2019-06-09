@@ -8,6 +8,9 @@ use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
 use Symfony\Component\Routing;
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 $request = Request::createFromGlobals();
 $routes = include __DIR__.'/../Application/app.php';
 
