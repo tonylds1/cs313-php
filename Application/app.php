@@ -19,11 +19,11 @@ $routes->add('week05', new Routing\Route('/week05',[
     '_controller' => 'cs313\Controllers\AssignmentsController::week05Action'
 ]));
 
-$routes->add('sharedArea', new Routing\Route('/shared-area/{id}',[
+$routes->add('sharedArea', new Routing\Route('/shared-area/show/{id}',[
     '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaAction'
 ]));
 
-$routes->add('sharedAreaDelete', new Routing\Route('/shared-area/delete{id}',[
+$routes->add('sharedAreaDelete', new Routing\Route('/shared-area/delete/{id}',[
     '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaDeleteAction'
 ]));
 
