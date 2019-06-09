@@ -8,10 +8,13 @@ abstract class AbstractSimplexController
 {
     protected function render(string $path, array $parameters = null)
     {
-        ob_start();
-        extract($parameters, EXTR_SKIP);
-        include sprintf(__DIR__ . '../View/%s.php', $path);
+        $response = new StreamedResponse();
+        $response->setCallback(function () use ($parameters, $path) {
+            extract($parameters, EXTR_SKIP);
+            include sprintf(__DIR__ . '../View/%s.php', $path);
+            flush();
+        });
 
-        return new Response(ob_get_clean());
+        return $response;
     }
 }
