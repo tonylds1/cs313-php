@@ -101,14 +101,14 @@ class AssignmentsController
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
 
             $sharedArea = new SharedAreaDTO($id, $request->get('name'));
-            var_dump($sharedArea);
+            var_dump($sharedArea); exit;
             if ($id) {
                 (new SharedAreaRepository())->update($sharedArea);
             } else {
                 (new SharedAreaRepository())->insert($sharedArea);
             }
 
-            $this->week05Action();
+            return week05Action($request);
         } catch (\Throwable $t) {
             var_dump($t); die;
         }

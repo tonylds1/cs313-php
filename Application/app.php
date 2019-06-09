@@ -35,7 +35,7 @@ $routes->add('sharedAreaSaveUpdate', new Routing\Route('/shared-area/save/{id}',
     '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaSaveAction'
 ]));
 
-$routes->add('sharedAreaSaveNew', new Routing\Route('/shared-area/save/',[
+$routes->add('sharedAreaSaveNew', new Routing\Route('/shared-area/save',[
     '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaSaveAction'
 ]));
 
