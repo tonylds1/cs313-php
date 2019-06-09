@@ -20,26 +20,19 @@ class AssignmentsController extends AbstractSimplexController
 
     public function week01Action(Request $request)
     {
-        $response = new Response(include '../View/CondominiumUI/hello.php');
-        $response->send();
+        return $this->render('CondominiumUI/hello');
     }
 
     public function week05Action(Request $request)
     {
         try {
+            $id = empty($request->get('id')) ? null : (int) $request->get('id');
+            $sharedAreaFilter = new SharedAreaDTO($id, $request->get('name'));
 
-            $response = new StreamedResponse();
-            $response->setCallback(function () use ($request) {
-                $id = empty($request->get('id')) ? null : (int) $request->get('id');
-                $sharedAreaFilter = new SharedAreaDTO($id, $request->get('name'));
+            $repository = new SharedAreaRepository();
+            $list = (new SharedAreaList($sharedAreaFilter, $repository))->getList();
 
-                $repository = new SharedAreaRepository();
-                $list = (new SharedAreaList($sharedAreaFilter, $repository))->getList();
-                include '../View/CondominiumUI/shared-areas.php';
-                flush();
-            });
-
-            return $response;
+            return $this->render('CondominiumUI/shared-areas', ['list' => $list]);
         } catch (\Throwable $t) {
           var_dump($t); die;
         }
@@ -102,8 +95,8 @@ class AssignmentsController extends AbstractSimplexController
         try {
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
 
+            var_dump($id); exit;
             $sharedArea = new SharedAreaDTO($id, $request->get('name'));
-            var_dump($sharedArea); exit;
             if ($id) {
                 (new SharedAreaRepository())->update($sharedArea);
             } else {
