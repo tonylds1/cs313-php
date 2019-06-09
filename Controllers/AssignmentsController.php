@@ -15,8 +15,7 @@ class AssignmentsController extends AbstractSimplexController
 {
     public function indexAction(Request $request)
     {
-        $response = $this->render('PersonalUI/assignments');
-        $response->send();
+        return $this->render('PersonalUI/assignments');
     }
 
     public function week01Action(Request $request)
