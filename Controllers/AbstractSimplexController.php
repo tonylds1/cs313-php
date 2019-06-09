@@ -10,7 +10,7 @@ abstract class AbstractSimplexController
     {
         ob_start();
         extract($parameters, EXTR_SKIP);
-        include sprintf(__DIR__ . '../View/%s.php', $path);
+        include sprintf(__DIR__ . '/../View/%s.php', $path);
 
         return new Response(ob_get_clean());
     }
