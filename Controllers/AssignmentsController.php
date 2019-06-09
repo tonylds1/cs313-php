@@ -102,7 +102,7 @@ class AssignmentsController extends AbstractSimplexController
                 (new SharedAreaRepository())->insert($sharedArea);
             }
 
-            return week05Action($request);
+            return $this->week05Action($request);
         } catch (\Throwable $t) {
             var_dump($t); die;
         }
