@@ -6,10 +6,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 abstract class AbstractSimplexController
 {
-    protected function render(string $path, \stdClass $object = null)
+    protected function render(string $path, array $parameters = null)
     {
-        extract($object, EXTR_SKIP);
         ob_start();
+        extract($parameters, EXTR_SKIP);
         include sprintf(__DIR__ . '../View/%s.php', $path);
 
         return new Response(ob_get_clean());
