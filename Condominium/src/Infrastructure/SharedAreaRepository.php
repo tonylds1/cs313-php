@@ -89,7 +89,7 @@ class SharedAreaRepository extends Repository implements SharedAreaRepositoryInt
         }
 
         $sql = 'INSERT INTO condominium.shared_area '.
-            '(ds_name) VALUES ('.$sharedAreaDTO->getName().')';
+            '(ds_name) VALUES (\''.$sharedAreaDTO->getName().'\')';
 
         $this->executeStatement($sql);
     }
