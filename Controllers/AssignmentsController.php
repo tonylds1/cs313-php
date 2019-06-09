@@ -11,11 +11,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Tests\Fixtures\AnnotationFixtures\AbstractClassController;
 
-class AssignmentsController
+class AssignmentsController extends AbstractSimplexController
 {
     public function indexAction(Request $request)
     {
-        $response = new Response(include '../View/PersonalUI/assignments.php');
+        $response = $this->render('PersonalUI/assignments');
         $response->send();
     }
 
@@ -49,17 +49,20 @@ class AssignmentsController
     public function sharedAreaAction(Request $request)
     {
         try {
+            $id = empty($request->get('id')) ? null : (int)$request->get('id');
+            $sharedArea = (new SharedAreaRepository())->findById($id);
+
+            if (!$sharedArea) {
+                return new Response('No Shared Area with that Id');
+            }
 
             $response = new StreamedResponse();
-            $response->setCallback(function () use ($request) {
-                $id = empty($request->get('id')) ? null : (int) $request->get('id');
-                $sharedArea = (new SharedAreaRepository())->findById($id);
-
+            $response->setCallback(function () use ($sharedArea) {
                 include '../View/CondominiumUI/shared-area.php';
                 flush();
             });
 
-            $response->send();
+            return $response;
         } catch (\Throwable $t) {
             var_dump($t); die;
         }

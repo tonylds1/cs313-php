@@ -8,15 +8,6 @@ use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
 use Symfony\Component\Routing;
 
-function render_template(Request $request)
-{
-    extract($request->attributes->all(), EXTR_SKIP);
-    ob_start();
-    include sprintf(__DIR__.'/../View/%s.php', $_route);
-
-    return new Response(ob_get_clean());
-}
-
 $request = Request::createFromGlobals();
 $routes = include __DIR__.'/../Application/app.php';
 
