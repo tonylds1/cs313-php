@@ -6,12 +6,13 @@ use cs313\Condominium\Infrastructure\SharedAreaRepository;
 use cs313\Condominium\Model\SharedArea\SharedArea;
 use cs313\Condominium\Model\SharedArea\SharedAreaDTO;
 use cs313\Condominium\Model\SharedArea\SharedAreaList;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Tests\Fixtures\AnnotationFixtures\AbstractClassController;
 
-class AssignmentsController extends AbstractSimplexController
+class AssignmentsController extends  AbstractSimplexController
 {
     public function indexAction(Request $request)
     {
@@ -102,7 +103,7 @@ class AssignmentsController extends AbstractSimplexController
                 (new SharedAreaRepository())->insert($sharedArea);
             }
 
-            return $this->week05Action($request);
+            return new RedirectResponse('/front.php/assignments');
         } catch (\Throwable $t) {
             var_dump($t); die;
         }
