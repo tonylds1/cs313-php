@@ -102,8 +102,7 @@ class AssignmentsController extends  AbstractSimplexController
             } else {
                 (new SharedAreaRepository())->insert($sharedArea);
             }
-
-            return new RedirectResponse('/front.php/assignments');
+            return new RedirectResponse('/front.php/week05');
         } catch (\Throwable $t) {
             var_dump($t); die;
         }

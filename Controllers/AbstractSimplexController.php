@@ -15,14 +15,4 @@ abstract class AbstractSimplexController
 
         return new Response(ob_get_clean());
     }
-
-    protected function redirect(Route $route)
-    {
-        $teste = $route->getPath();
-        $teste2 = $route->getHost();
-        $teste3 = $route->getSchemes();
-        echo $teste . '<br/>' .$teste1 . '<br/>' .$teste2 . '<br/>';
-        exit;
-        header('location: /acme/products/');
-    }
 }
