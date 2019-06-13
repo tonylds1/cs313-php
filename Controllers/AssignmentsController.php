@@ -91,9 +91,10 @@ class AssignmentsController extends  AbstractSimplexController
         }
     }
 
-    public function sharedAreaSaveAction(Request $request, int $id = null)
+    public function sharedAreaSaveAction(Request $request)
     {
         try {
+            $id = empty($request->get('id')) ? null : (int) $request->get('id');
             $sharedArea = new SharedAreaDTO($id, $request->get('name'));
 
             if ($id) {
