@@ -34,7 +34,7 @@ class AssignmentsController extends  AbstractSimplexController
 
             $render = new SharedAreaRender(['list' => $list]);
 
-            return $render->render();
+            return new Response($render->render());
         } catch (\Throwable $t) {
           var_dump($t); die;
         }
