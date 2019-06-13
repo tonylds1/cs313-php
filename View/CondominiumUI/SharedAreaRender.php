@@ -11,7 +11,7 @@ class SharedAreaRender implements IRender
      */
     public function __construct(string $path)
     {
-        $this->path = __DIR__ . $path;
+        $this->path = __DIR__ . '/' .$path;
     }
 
     public function render()
