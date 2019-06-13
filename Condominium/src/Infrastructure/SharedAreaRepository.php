@@ -76,7 +76,7 @@ class SharedAreaRepository extends Repository implements SharedAreaRepositoryInt
 
         $sql = 'UPDATE condominium.shared_area '.
             'SET ds_name = '. $sharedAreaDTO->getName().
-            'WHERE id = '. $sharedAreaDTO->getId()
+            ' WHERE id = '. $sharedAreaDTO->getId()
         ;
         
         $this->executeStatement($sql);
