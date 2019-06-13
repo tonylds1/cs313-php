@@ -32,8 +32,8 @@ class AssignmentsController extends  AbstractSimplexController
 
             $repository = new SharedAreaRepository();
             $list = (new SharedAreaList($sharedAreaFilter, $repository))->getList();
-
-            return $this->render('CondominiumUI/shared-areas', ['list' => $list]);
+            $render = new \SharedAreaRender();
+            return $this->render($render, ['list' => $list]);
         } catch (\Throwable $t) {
           var_dump($t); die;
         }
