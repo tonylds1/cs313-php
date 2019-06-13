@@ -3,15 +3,13 @@
 namespace cs313\Controllers;
 
 use cs313\Condominium\Infrastructure\SharedAreaRepository;
-use cs313\Condominium\Model\SharedArea\SharedArea;
 use cs313\Condominium\Model\SharedArea\SharedAreaDTO;
 use cs313\Condominium\Model\SharedArea\SharedAreaList;
-use Simplex\SharedAreaRender;
+use View\SharedAreaRender;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
-use Symfony\Component\Routing\Tests\Fixtures\AnnotationFixtures\AbstractClassController;
 
 class AssignmentsController extends  AbstractSimplexController
 {

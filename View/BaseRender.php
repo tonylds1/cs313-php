@@ -1,6 +1,6 @@
 <?php
 
-namespace Simplex;
+namespace View;
 
 abstract class BaseRender implements IRender
 {
