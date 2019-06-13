@@ -67,7 +67,7 @@ class AssignmentsController extends  AbstractSimplexController
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
             (new SharedAreaRepository())->delete($id);
 
-            $this->week05Action();
+            return new RedirectResponse('/front.php/week05');
         } catch (\Throwable $t) {
             var_dump($t); die;
         }
@@ -102,6 +102,7 @@ class AssignmentsController extends  AbstractSimplexController
             } else {
                 (new SharedAreaRepository())->insert($sharedArea);
             }
+
             return new RedirectResponse('/front.php/week05');
         } catch (\Throwable $t) {
             var_dump($t); die;
