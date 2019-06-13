@@ -31,8 +31,10 @@ class AssignmentsController extends  AbstractSimplexController
 
             $repository = new SharedAreaRepository();
             $list = (new SharedAreaList($sharedAreaFilter, $repository))->getList();
-            $render = new SharedAreaRender('shared-areas.php');
-            return $this->render($render, ['list' => $list]);
+
+            $render = new SharedAreaRender(['list' => $list]);
+
+            return $render->render();
         } catch (\Throwable $t) {
           var_dump($t); die;
         }
