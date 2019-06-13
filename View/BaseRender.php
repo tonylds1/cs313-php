@@ -2,20 +2,25 @@
 
 namespace View;
 
-abstract class BaseRender implements IRender
+class BaseRender implements IRender
 {
-    private $path;
+    private $render;
+    private $vars;
 
     /**
      * BaseRender constructor.
      */
-    public function __construct(string $path)
+    public function __construct(IRender $render, $vars = [])
     {
-        $this->path = $path;
+        $this->vars = $vars;
+        $this->render = $render;
     }
 
     public function render()
     {
+        ob_start();
+        extract($this->vars, EXTR_SKIP);
+
 ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -30,10 +35,11 @@ abstract class BaseRender implements IRender
         </head>
         <body>
             <div class='container d-flex flex-column col-6  '>
-                <?php include $this->path; ?>
+                <?php $this->render->render(); ?>
             </div>
         </body>
         </html>
 <?php
+        return ob_get_clean();
     }
 }
