@@ -6,6 +6,7 @@ use cs313\Condominium\Infrastructure\SharedAreaRepository;
 use cs313\Condominium\Model\SharedArea\SharedArea;
 use cs313\Condominium\Model\SharedArea\SharedAreaDTO;
 use cs313\Condominium\Model\SharedArea\SharedAreaList;
+use Simplex\SharedAreaRender;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,7 +33,7 @@ class AssignmentsController extends  AbstractSimplexController
 
             $repository = new SharedAreaRepository();
             $list = (new SharedAreaList($sharedAreaFilter, $repository))->getList();
-            $render = new \SharedAreaRender();
+            $render = new SharedAreaRender('shared-areas.php');
             return $this->render($render, ['list' => $list]);
         } catch (\Throwable $t) {
           var_dump($t); die;

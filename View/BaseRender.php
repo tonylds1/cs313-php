@@ -1,5 +1,7 @@
 <?php
 
+namespace Simplex;
+
 abstract class BaseRender implements IRender
 {
     private $path;

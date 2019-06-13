@@ -1,5 +1,7 @@
 <?php
 
+namespace Simplex;
+
 class SharedAreaRender implements IRender
 {
     private $path;
@@ -9,7 +11,7 @@ class SharedAreaRender implements IRender
      */
     public function __construct(string $path)
     {
-        $this->path = $path;
+        $this->path = '../View/CondominiumUi/'.$path;
     }
 
     public function render()
