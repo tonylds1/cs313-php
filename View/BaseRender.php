@@ -34,9 +34,7 @@ class BaseRender implements IRender
         </head>
         <body>
         <?php include 'nav.phtml'; ?>
-            <div class='container d-flex flex-column col-6  '>
-                <?php $this->render->render($this->vars); ?>
-            </div>
+
         </body>
         </html>
 <?php
