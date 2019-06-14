@@ -18,15 +18,22 @@
 </div>
 
 <div class="justify-content-center">
-    <ul>
+
 <?php foreach ($list as $sharedArea): ?>
-    <li>
-        <a href="/front.php/shared-area/show/<?=$sharedArea->getId(); ?>">
-            <?=$sharedArea->getId();?> - <?=$sharedArea->getName();?>
-        </a>
-    </li>
+    <div class="row">
+        <div class="col-sm">
+            <a href="/front.php/shared-area/show/<?=$sharedArea->getId(); ?>">
+                <?=$sharedArea->getId();?>
+            </a>
+        </div>
+        <div class="col-sm">
+            <a href="/front.php/shared-area/show/<?=$sharedArea->getId(); ?>">
+                <?=$sharedArea->getName();?>
+            </a>
+        </div>
+    </div>
 <?php endforeach; ?>
-    </ul>
+
 </div>
 
 <div class="justify-content-center search-box">
