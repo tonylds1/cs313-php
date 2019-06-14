@@ -5,7 +5,6 @@ namespace cs313\Controllers;
 use cs313\Condominium\Infrastructure\SharedAreaRepository;
 use cs313\Condominium\Model\SharedArea\SharedAreaDTO;
 use cs313\Condominium\Model\SharedArea\SharedAreaList;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 use View\BaseRender;
 use View\SharedAreaRender;
 use View\SharedAreasRender;
@@ -31,12 +30,11 @@ class SharedAreaController extends  AbstractSimplexController
             $list = (new SharedAreaList($sharedAreaFilter, $repository))->getList();
 
             $render = new SharedAreasRender();
-            $baseRender = new BaseRender($render, ['list' => $list]);
 
-            return new Response($baseRender->render());
+            return $this->render($render, ['list' => $list]);
         } catch (\Throwable $t) {
             $this->sessionHandler->addErrorMessage($t->getMessage());
-            $this->redirect('/front.php/ops');
+            return $this->redirect('/front.php/ops');
         }
     }
 
@@ -51,11 +49,11 @@ class SharedAreaController extends  AbstractSimplexController
             }
 
             $render = new SharedAreaRender();
-            $this->render($render, ['sharedArea' => $sharedArea]);
 
+            return $this->render($render, ['sharedArea' => $sharedArea]);
         } catch (\Throwable $t) {
             $this->sessionHandler->addErrorMessage($t->getMessage());
-            $this->redirect('/front.php/shared-area/list');
+            return $this->redirect('/front.php/shared-area/list');
         }
     }
 
@@ -65,10 +63,10 @@ class SharedAreaController extends  AbstractSimplexController
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
             (new SharedAreaRepository())->delete($id);
 
-            $this->redirect('/front.php/shared-area/list');
+            return $this->redirect('/front.php/shared-area/list');
         } catch (\Throwable $t) {
             $this->sessionHandler->addErrorMessage($t->getMessage());
-            $this->redirect('/front.php/shared-area/list');
+            return $this->redirect('/front.php/shared-area/list');
         }
     }
 
@@ -77,14 +75,12 @@ class SharedAreaController extends  AbstractSimplexController
         try {
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
             $sharedArea = (new SharedAreaRepository())->findById($id);
-
             $render = new SharedAreaUpdateRender();
-            $baseRender = new BaseRender($render, ['sharedArea' => $sharedArea]);
 
-            return new Response($baseRender->render());
+            return $this->render($render, ['sharedArea' => $sharedArea]);
         } catch (\Throwable $t) {
             $this->sessionHandler->addErrorMessage($t->getMessage());
-            $this->redirect('/front.php/shared-area/list');
+            return $this->redirect('/front.php/shared-area/list');
         }
     }
 
@@ -98,15 +94,15 @@ class SharedAreaController extends  AbstractSimplexController
             if ($id) {
                 $repository->update($sharedArea);
 
-                $this->redirect('/front.php/shared-area/list');
+                return $this->redirect('/front.php/shared-area/list');
             }
 
             $repository->insert($sharedArea);
 
-            $this->redirect('/front.php/shared-area/list');
+            return $this->redirect('/front.php/shared-area/list');
         } catch (\Throwable $t) {
             $this->sessionHandler->addErrorMessage($t->getMessage());
-            $this->redirect('/front.php/shared-area/list');
+            return $this->redirect('/front.php/shared-area/list');
         }
     }
 }
