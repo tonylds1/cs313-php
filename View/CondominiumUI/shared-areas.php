@@ -19,14 +19,14 @@
 
 <div class="justify-content-center">
 
+<?php if (count($list) > 0): ?>
     <div class="row">
         <div class="col-sm-1">
             ID
         </div>
-    </div>
-<?php if (count($list) > 0): ?>
-    <div class="col-sm-4">
-        SHARED AREA
+        <div class="col-sm-4">
+            SHARED AREA
+        </div>
     </div>
     <?php foreach ($list as $sharedArea): ?>
             <div class="row">
