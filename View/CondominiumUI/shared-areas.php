@@ -1,8 +1,4 @@
 
-<div id="header justify-content-end">
-    <a href="assignments" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">See Week Exercices</a>
-</div>
-
 <div class="justify-content-center search-box">
     <h1>SHARED AREAS</h1>
     <p>List all the shared areas added.</p>
