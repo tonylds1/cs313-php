@@ -2,7 +2,7 @@
 <div class="justify-content-center search-box">
     <h1>SHARED AREAS</h1>
     <p>List all the shared areas added.</p>
-    <form method="post" action="week05">
+    <form method="post" action="list">
         <div class="row">
             <div class="col">
                 <input type="text" class="form-control" name='id' placeholder="ID">
