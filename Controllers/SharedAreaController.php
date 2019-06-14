@@ -35,7 +35,8 @@ class SharedAreaController extends  AbstractSimplexController
 
             return new Response($baseRender->render());
         } catch (\Throwable $t) {
-            var_dump($t); die;
+            $this->sessionHandler->addErrorMessage($t->getMessage());
+            $this->redirect('/front.php/ops');
         }
     }
 
@@ -50,11 +51,11 @@ class SharedAreaController extends  AbstractSimplexController
             }
 
             $render = new SharedAreaRender();
-            $baseRender = new BaseRender($render, ['sharedArea' => $sharedArea]);
+            $this->render($render, ['sharedArea' => $sharedArea]);
 
-            return new Response($baseRender->render());
         } catch (\Throwable $t) {
-            return new RedirectResponse('/front.php/shared-area/list');
+            $this->sessionHandler->addErrorMessage($t->getMessage());
+            $this->redirect('/front.php/shared-area/list');
         }
     }
 
@@ -64,9 +65,10 @@ class SharedAreaController extends  AbstractSimplexController
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
             (new SharedAreaRepository())->delete($id);
 
-            return new RedirectResponse('/front.php/shared-area/list');
+            $this->redirect('/front.php/shared-area/list');
         } catch (\Throwable $t) {
-            return new RedirectResponse('/front.php/shared-area/list');
+            $this->sessionHandler->addErrorMessage($t->getMessage());
+            $this->redirect('/front.php/shared-area/list');
         }
     }
 
@@ -81,7 +83,8 @@ class SharedAreaController extends  AbstractSimplexController
 
             return new Response($baseRender->render());
         } catch (\Throwable $t) {
-            return new RedirectResponse('/front.php/shared-area/list');
+            $this->sessionHandler->addErrorMessage($t->getMessage());
+            $this->redirect('/front.php/shared-area/list');
         }
     }
 
@@ -95,14 +98,15 @@ class SharedAreaController extends  AbstractSimplexController
             if ($id) {
                 $repository->update($sharedArea);
 
-                return new RedirectResponse('/front.php/shared-area/list');
+                $this->redirect('/front.php/shared-area/list');
             }
 
             $repository->insert($sharedArea);
 
-            return new RedirectResponse('/front.php/shared-area/list');
+            $this->redirect('/front.php/shared-area/list');
         } catch (\Throwable $t) {
-            return new RedirectResponse('/front.php/shared-area/list');
+            $this->sessionHandler->addErrorMessage($t->getMessage());
+            $this->redirect('/front.php/shared-area/list');
         }
     }
 }
