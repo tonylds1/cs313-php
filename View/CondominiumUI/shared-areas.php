@@ -23,12 +23,12 @@
         <div class="col-sm-1">
             ID
         </div>
-        <div class="col-sm-4">
-            SHARED AREA
-        </div>
     </div>
-<?php if (count($list) > 0):
-        foreach ($list as $sharedArea): ?>
+<?php if (count($list) > 0): ?>
+    <div class="col-sm-4">
+        SHARED AREA
+    </div>
+    <?php foreach ($list as $sharedArea): ?>
             <div class="row">
                 <div class="col-sm-1">
                     <a href="/front.php/shared-area/show/<?=$sharedArea->getId(); ?>">
@@ -41,9 +41,8 @@
                     </a>
                 </div>
             </div>
-<?php endforeach;
-    else:
-?>
+    <?php endforeach; ?>
+<?php else: ?>
     <div class="row">
         <p>NO SHARED AREA REGISTERED WITH THE GIVEN CRITERIA.</p>
     </div>
