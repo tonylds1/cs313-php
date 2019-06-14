@@ -22,7 +22,7 @@ class SharedAreaRepository extends Repository implements SharedAreaRepositoryInt
         }
 
         if ($filter->getName()) {
-            $sql .= ' and ds_name like \'%' . $filter->getName() . '%\'';
+            $sql .= ' and ds_name like lower(\'%' . $filter->getName() . '%\')';
         }
 
         $statement = $this->executeStatement($sql);
