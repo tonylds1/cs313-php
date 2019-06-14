@@ -29,7 +29,7 @@ class SharedAreaController extends  AbstractSimplexController
             $repository = new SharedAreaRepository();
             $list = (new SharedAreaList($sharedAreaFilter, $repository))->getList();
 
-            $render = new SharedAreaRender();
+            $render = new SharedAreasRender();
             $baseRender = new BaseRender($render, ['list' => $list]);
 
             return new Response($baseRender->render());
