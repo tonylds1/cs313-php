@@ -5,6 +5,7 @@ namespace cs313\Controllers;
 use cs313\Condominium\Infrastructure\SharedAreaRepository;
 use cs313\Condominium\Model\SharedArea\SharedAreaDTO;
 use cs313\Condominium\Model\SharedArea\SharedAreaList;
+use View\BaseRender;
 use View\SharedAreaRender;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,9 +33,10 @@ class AssignmentsController extends  AbstractSimplexController
             $repository = new SharedAreaRepository();
             $list = (new SharedAreaList($sharedAreaFilter, $repository))->getList();
 
-            $render = new SharedAreaRender(['list' => $list]);
+            $render = new SharedAreaRender();
+            $baseRender = new BaseRender($render, ['list' => $list]);
 
-            return new Response($render->render());
+            return new Response($baseRender->render());
         } catch (\Throwable $t) {
           var_dump($t); die;
         }
