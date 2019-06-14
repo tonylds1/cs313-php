@@ -6,11 +6,10 @@ use cs313\Condominium\Infrastructure\SharedAreaRepository;
 use cs313\Condominium\Model\SharedArea\SharedAreaDTO;
 use cs313\Condominium\Model\SharedArea\SharedAreaList;
 use View\BaseRender;
-use View\SharedAreaRender;
+use View\SharedAreasRender;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 use View\SharedAreaUpdateRender;
 
 class SharedAreaController extends  AbstractSimplexController
