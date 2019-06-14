@@ -29,6 +29,7 @@ class BaseRender implements IRender
             <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:400,700%7CBitter:400,400italic,700&amp;subset=latin,latin" media="all">
             <link rel="stylesheet" href="/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/css/font-awesome.min.css">
             <script src="/js/jquery-3.4.1.min.js"></script>
             <script src="/js/bootstrap.min.js"></script>
         </head>
