@@ -24,5 +24,8 @@
       "cs313\\HelloWorld\\": "Week01/src",
       "cs313\\Condominium\\": "Condominium/src"
     }
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^4.3"
   }
 }

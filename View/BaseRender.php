@@ -21,7 +21,7 @@ class BaseRender implements IRender
         ob_start();
         extract($this->vars, EXTR_SKIP);
 
-        var_dump($list);
+        dump($list);
 ?>
         <!DOCTYPE html>
         <html lang="en">
