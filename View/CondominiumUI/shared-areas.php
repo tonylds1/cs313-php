@@ -1,6 +1,7 @@
 
 <div class="justify-content-center search-box">
     <h1>SHARED AREAS</h1>
+<?php if (count($list) > 0): ?>
     <p>List all the shared areas added.</p>
     <form method="post" action="list">
         <div class="row">
@@ -15,11 +16,7 @@
             </div>
         </div>
     </form>
-</div>
 
-<div class="justify-content-center">
-
-<?php if (count($list) > 0): ?>
     <div class="row">
         <div class="col-sm-1">
             ID
