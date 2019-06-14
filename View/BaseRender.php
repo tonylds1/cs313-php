@@ -16,7 +16,7 @@ class BaseRender implements IRender
         $this->render = $render;
     }
 
-    public function render()
+    public function render(array $vars = [])
     {
         ob_start();
 ?>
