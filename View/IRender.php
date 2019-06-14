@@ -4,5 +4,5 @@ namespace View;
 
 interface IRender
 {
-    public function render();
+    public function render(array $vars = []);
 }

@@ -19,7 +19,6 @@ class BaseRender implements IRender
     public function render()
     {
         ob_start();
-        extract($this->vars, EXTR_SKIP);
 ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -34,7 +33,7 @@ class BaseRender implements IRender
         </head>
         <body>
             <div class='container d-flex flex-column col-6  '>
-                <?php $this->render->render(); ?>
+                <?php $this->render->render($this->vars); ?>
             </div>
         </body>
         </html>
