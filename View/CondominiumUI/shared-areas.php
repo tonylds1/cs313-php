@@ -19,14 +19,22 @@
 
 <div class="justify-content-center">
 
+    <div class="row justify-content-md-center">
+        <div class="col-sm-1">
+            ID
+        </div>
+        <div class="col-sm-4">
+            SHARED AREA
+        </div>
+    </div>
 <?php foreach ($list as $sharedArea): ?>
-    <div class="row">
-        <div class="col-sm">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-1">
             <a href="/front.php/shared-area/show/<?=$sharedArea->getId(); ?>">
                 <?=$sharedArea->getId();?>
             </a>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-4">
             <a href="/front.php/shared-area/show/<?=$sharedArea->getId(); ?>">
                 <?=$sharedArea->getName();?>
             </a>
