@@ -15,28 +15,28 @@ $routes->add('PersonalUI/assignments', new Routing\Route('/assignments',[
     '_controller' => 'cs313\Controllers\AssignmentsController::indexAction'
 ]));
 
-$routes->add('week05', new Routing\Route('/week05',[
-    '_controller' => 'cs313\Controllers\AssignmentsController::week05Action'
+$routes->add('sharedAreaList', new Routing\Route('/shared-area/list',[
+    '_controller' => 'cs313\Controllers\SharedAreaController::sharedAreaListAction'
 ]));
 
-$routes->add('sharedArea', new Routing\Route('/shared-area/show/{id}',[
-    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaAction'
+$routes->add('sharedAreaCreate', new Routing\Route('/shared-area/new',[
+    '_controller' => 'cs313\Controllers\SharedAreaController::sharedAreaSaveAction'
+]));
+
+$routes->add('sharedAreaRead', new Routing\Route('/shared-area/show/{id}',[
+    '_controller' => 'cs313\Controllers\SharedAreaController::sharedAreaAction'
+]));
+
+$routes->add('sharedAreaUpdate', new Routing\Route('/shared-area/save/{id}',[
+    '_controller' => 'cs313\Controllers\SharedAreaController::sharedAreaSaveAction'
 ]));
 
 $routes->add('sharedAreaDelete', new Routing\Route('/shared-area/delete/{id}',[
-    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaDeleteAction'
+    '_controller' => 'cs313\Controllers\SharedAreaController::sharedAreaDeleteAction'
 ]));
 
-$routes->add('sharedAreaUpdate', new Routing\Route('/shared-area/update/{id}',[
-    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaUpdateAction'
-]));
-
-$routes->add('sharedAreaSaveNew', new Routing\Route('/shared-area/new',[
-    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaSaveAction'
-]));
-
-$routes->add('sharedAreaSaveUpdate', new Routing\Route('/shared-area/save/{id}',[
-    '_controller' => 'cs313\Controllers\AssignmentsController::sharedAreaSaveAction'
+$routes->add('sharedAreaUpdateView', new Routing\Route('/shared-area/update/{id}',[
+    '_controller' => 'cs313\Controllers\SharedAreaController::sharedAreaUpdateAction'
 ]));
 
 

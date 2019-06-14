@@ -2,12 +2,12 @@
 
 namespace View;
 
-class SharedAreaRender implements IRender
+class SharedAreasRender implements IRender
 {
     public function render(array $vars = [])
     {
         extract($vars, EXTR_SKIP);
 
-        include 'shared-area.php';
+        include 'shared-areas.php';
     }
 }
