@@ -30,6 +30,8 @@ class BaseRender implements IRender
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:400,700%7CBitter:400,400italic,700&amp;subset=latin,latin" media="all">
             <link rel="stylesheet" href="/css/bootstrap.min.css">
             <link rel="stylesheet" href="/css/style.css">
+            <script src="/js/bootstrap.min.js"></script>
+            <script src="/js/jquery-3.4.1.min.js"></script>
         </head>
         <body>
         <?php include 'nav.phtml'; ?>
