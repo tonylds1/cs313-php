@@ -32,9 +32,9 @@ class NavRender implements IRender
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <?php foreach ($this->options as $path => $label): ?>
+                    <?php foreach ($this->options as $item): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=$path; ?>"><?=$label;?></a>
+                            <a class="nav-link" href="<?=$item->getHref(); ?>"><?=$item->getLabel();?></a>
                         </li>
                     <?php endforeach; ?>
                 </ul>
