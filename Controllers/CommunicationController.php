@@ -2,34 +2,34 @@
 
 namespace cs313\Controllers;
 
-use cs313\Condominium\Infrastructure\SharedAreaRepository;
-use cs313\Condominium\Model\SharedArea\SharedAreaDTO;
-use cs313\Condominium\Model\SharedArea\CommunicationList;
+use cs313\Condominium\Infrastructure\CommunicationRepository;
+use cs313\Condominium\Model\Communication\CommunicationDTO;
+use cs313\Condominium\Model\Communication\CommunicationList;
 use View\BaseRender;
-use View\SharedAreaRender;
-use View\SharedAreasRender;
+use View\CommunicationRender;
+use View\CommunicationsRender;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use View\SharedAreaUpdateRender;
+use View\CommunicationUpdateRender;
 
-class SharedAreaController extends  AbstractSimplexController
+class CommunicationController extends  AbstractSimplexController
 {
     public function indexAction(Request $request)
     {
-        return new RedirectResponse('/front.php/shared-area/list');
+        return new RedirectResponse('/front.php/communication/list');
     }
 
-    public function sharedAreaListAction(Request $request)
+    public function communicationListAction(Request $request)
     {
         try {
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
-            $sharedAreaFilter = new SharedAreaDTO($id, $request->get('name'));
+            $communicationFilter = new CommunicationDTO($id, $request->get('name'));
 
-            $repository = new SharedAreaRepository();
-            $list = (new CommunicationList($sharedAreaFilter, $repository))->getList();
+            $repository = new CommunicationRepository();
+            $list = (new CommunicationList($communicationFilter, $repository))->getList();
 
-            $render = new SharedAreasRender();
+            $render = new CommunicationsRender();
 
             return $this->render($render, ['list' => $list]);
         } catch (\Throwable $t) {
@@ -38,30 +38,30 @@ class SharedAreaController extends  AbstractSimplexController
         }
     }
 
-    public function sharedAreaAction(Request $request)
+    public function communicationAction(Request $request)
     {
         try {
             $id = empty($request->get('id')) ? null : (int)$request->get('id');
-            $sharedArea = (new SharedAreaRepository())->findById($id);
+            $communication = (new CommunicationRepository())->findById($id);
 
-            if (!$sharedArea) {
+            if (!$communication) {
                 return new Response('No Shared Area with that Id');
             }
 
-            $render = new SharedAreaRender();
+            $render = new CommunicationRender();
 
-            return $this->render($render, ['sharedArea' => $sharedArea]);
+            return $this->render($render, ['communication' => $communication]);
         } catch (\Throwable $t) {
             $this->sessionHandler->addErrorMessage($t->getMessage());
             return $this->redirect('/front.php/shared-area/list');
         }
     }
 
-    public function sharedAreaDeleteAction(Request $request)
+    public function communicationDeleteAction(Request $request)
     {
         try {
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
-            (new SharedAreaRepository())->delete($id);
+            (new CommunicationRepository())->delete($id);
 
             return $this->redirect('/front.php/shared-area/list');
         } catch (\Throwable $t) {
@@ -70,35 +70,34 @@ class SharedAreaController extends  AbstractSimplexController
         }
     }
 
-    public function sharedAreaUpdateAction(Request $request)
+    public function communicationUpdateAction(Request $request)
     {
         try {
-            throw new Exception("meu Nome é Tony");
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
-            $sharedArea = (new SharedAreaRepository())->findById($id);
-            $render = new SharedAreaUpdateRender();
+            $communication = (new CommunicationRepository())->findById($id);
+            $render = new CommunicationUpdateRender();
 
-            return $this->render($render, ['sharedArea' => $sharedArea]);
+            return $this->render($render, ['communication' => $communication]);
         } catch (\Throwable $t) {
             $this->sessionHandler->addErrorMessage($t->getMessage());
             return $this->redirect('/front.php/shared-area/list');
         }
     }
 
-    public function sharedAreaSaveAction(Request $request)
+    public function communicationSaveAction(Request $request)
     {
         try {
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
-            $sharedArea = new SharedAreaDTO($id, $request->get('name'));
-            $repository = new SharedAreaRepository();
+            $communication = new CommunicationDTO($id, $request->get('name'));
+            $repository = new CommunicationRepository();
 
             if ($id) {
-                $repository->update($sharedArea);
+                $repository->update($communication);
 
                 return $this->redirect('/front.php/shared-area/list');
             }
 
-            $repository->insert($sharedArea);
+            $repository->insert($communication);
 
             return $this->redirect('/front.php/shared-area/list');
         } catch (\Throwable $t) {

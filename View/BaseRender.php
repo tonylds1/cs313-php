@@ -2,6 +2,9 @@
 
 namespace View;
 
+use cs313\Controllers\AbstractSimplexController;
+use Simplex\SessionHandler;
+
 class BaseRender implements IRender
 {
     private $render;
@@ -36,6 +39,11 @@ class BaseRender implements IRender
         </head>
         <body>
         <?php include 'nav.phtml'; ?>
+        <?php if (isset($this->vars[SessionHandler::ERROR])): ?>
+            <div class="alert alert-success">
+                <strong>Error!</strong> <?= $this->vars[SessionHandler::ERROR] ?>
+            </div>
+        <?php endif; ?>
             <div class='container d-flex flex-column col-6 '>
                 <?php $this->render->render($this->vars); ?>
             </div>

@@ -20,4 +20,9 @@ class SessionHandler
 
         return $message;
     }
+
+    public function hasError()
+    {
+        return isset($_SESSION[self::ERROR]);
+    }
 }

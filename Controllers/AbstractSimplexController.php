@@ -21,9 +21,21 @@ abstract class AbstractSimplexController
         $this->sessionHandler = new SessionHandler();
     }
 
+    protected function renderPath(string $path, array $parameters = [])
+    {
+        ob_start();
+        extract($parameters, EXTR_SKIP);
+        include sprintf(__DIR__ . '/../View/%s.php', $path);
+
+        return new Response(ob_get_clean());
+    }
 
     protected function render(IRender $render, array $parameters = [])
     {
+        if ($this->sessionHandler->hasError()) {
+            $parameters[SessionHandler::ERROR] = $this->sessionHandler->printErrorMessage();
+        }
+
         $baseRender = new BaseRender($render, $parameters);
 
         return new Response($baseRender->render());

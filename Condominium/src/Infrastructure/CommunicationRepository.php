@@ -2,12 +2,13 @@
 
 namespace cs313\Condominium\Infrastructure;
 
+use cs313\Condominium\Model\SharedArea\CommunicationRepositoryInterface;
 use cs313\Condominium\Model\SharedArea\SharedArea;
 use cs313\Condominium\Model\SharedArea\SharedAreaDTO;
 use cs313\Condominium\Model\SharedArea\CommunicationList;
 use cs313\Condominium\Model\SharedArea\SharedAreaRepositoryInterface;
 
-class SharedAreaRepository extends Repository implements SharedAreaRepositoryInterface
+class CommunicationRepository extends Repository implements CommunicationRepositoryInterface
 {
     /**
      * @param SharedAreaDTO $filter

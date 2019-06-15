@@ -39,5 +39,28 @@ $routes->add('sharedAreaUpdateView', new Routing\Route('/shared-area/update/{id}
     '_controller' => 'cs313\Controllers\SharedAreaController::sharedAreaUpdateAction'
 ]));
 
+$routes->add('communicationList', new Routing\Route('/communication/list',[
+    '_controller' => 'cs313\Controllers\CommunicationController::communicationListAction'
+]));
+
+$routes->add('communicationCreate', new Routing\Route('/communication/new',[
+    '_controller' => 'cs313\Controllers\CommunicationController::communicationSaveAction'
+]));
+
+$routes->add('communicationRead', new Routing\Route('/communication/show/{id}',[
+    '_controller' => 'cs313\Controllers\CommunicationController::communicationAction'
+]));
+
+$routes->add('communicationUpdate', new Routing\Route('/communication/save/{id}',[
+    '_controller' => 'cs313\Controllers\CommunicationController::communicationSaveAction'
+]));
+
+$routes->add('communicationDelete', new Routing\Route('/communication/delete/{id}',[
+    '_controller' => 'cs313\Controllers\CommunicationController::communicationDeleteAction'
+]));
+
+$routes->add('communicationUpdateView', new Routing\Route('/communication/update/{id}',[
+    '_controller' => 'cs313\Controllers\CommunicationController::communicationUpdateAction'
+]));
 
 return $routes;

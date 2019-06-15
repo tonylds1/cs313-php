@@ -1,11 +1,10 @@
 <?php
 
-
 namespace cs313\Condominium\Model\Communication;
 
 use cs313\Condomimium\Model\User\User;
 
-class CommunicationDto
+class Communication
 {
     /**
      * @var int
@@ -46,8 +45,14 @@ class CommunicationDto
      * @param \DateTime $creation
      * @param int $daysAvailable
      */
-    public function __construct(int $id, User $userOrigin, User $userDestiny, string $text, \DateTime $creation, int $daysAvailable)
-    {
+    public function __construct(
+        int $id = null,
+        User $userOrigin = null,
+        User $userDestiny = null,
+        string $text  = null,
+        \DateTime $creation = null,
+        int $daysAvailable
+    ) {
         $this->id = $id;
         $this->userOrigin = $userOrigin;
         $this->userDestiny = $userDestiny;
@@ -102,5 +107,53 @@ class CommunicationDto
     public function getDaysAvailable(): int
     {
         return $this->daysAvailable;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param User $userOrigin
+     */
+    public function setUserOrigin(User $userOrigin): void
+    {
+        $this->userOrigin = $userOrigin;
+    }
+
+    /**
+     * @param User $userDestiny
+     */
+    public function setUserDestiny(User $userDestiny): void
+    {
+        $this->userDestiny = $userDestiny;
+    }
+
+    /**
+     * @param string $text
+     */
+    public function setText(string $text): void
+    {
+        $this->text = $text;
+    }
+
+    /**
+     * @param \DateTime $creation
+     */
+    public function setCreation(\DateTime $creation): void
+    {
+        $this->creation = $creation;
+    }
+
+    /**
+     * @param int $daysAvailable
+     */
+    public function setDaysAvailable(int $daysAvailable): void
+    {
+        $this->daysAvailable = $daysAvailable;
     }
 }
