@@ -3,6 +3,7 @@
 namespace cs313\Condominium\Infrastructure;
 
 use cs313\Condomimium\Model\User\UserDTOBuilder;
+use cs313\Condominium\Model\Communication\Communication;
 use cs313\Condominium\Model\Communication\CommunicationDTO;
 use cs313\Condominium\Model\Communication\CommunicationDTOBuilder;
 use cs313\Condominium\Model\Communication\CommunicationRepositoryInterface;
