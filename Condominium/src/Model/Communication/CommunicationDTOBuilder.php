@@ -14,7 +14,7 @@ class CommunicationDTOBuilder
 
     /**
      * CommunicationDTOBuilder constructor.
-     * @param UserDTOBuilder $userRepository
+     * @param UserDTOBuilder $userDtoBuilder
      */
     public function __construct(UserDTOBuilder $userDtoBuilder)
     {
