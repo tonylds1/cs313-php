@@ -69,20 +69,20 @@ class CommunicationRepository extends Repository implements CommunicationReposit
     {
         $sql = '
             SELECT c.id as id,
-            c.id_user_origin as useroriginid,
-            c.id_user_destity as userdestinyid,
-            c.ds_title as title,
-            c.ds_text as text,
-            c.dt_creation as created,
-            c.nu_days as days,
-            porigin.ds_fullname as from
-            pdestiny.ds_fullname as to
-            FROM condominium.communication c 
-            JOIN condominium.user uorigin on u.id = c.id_user_origin
-            JOIN condominium.user udestiny on u.id = c.id_user_destiny
-            JOIN condominium.person porigin on porigin.id = uorigin.id_person
-            JOIN condominium.person pdestiny on pdestiny.id = udestiny.id_person 
-            WHERE c.id_user_destinu is null
+                   c.id_user_origin as useroriginid,
+                   c.id_user_destiny as userdestinyid,
+                   c.ds_title as title,
+                   c.ds_text as text,
+                   c.dt_creation as created,
+                   c.nu_days as days,
+                   porigin.ds_fullname as from,
+                   pdestiny.ds_fullname as to
+            FROM condominium.communication c
+                JOIN condominium.user uorigin on uorigin.id = c.id_user_origin
+                JOIN condominium.person porigin on porigin.id = uorigin.id_person
+                LEFT JOIN condominium.user udestiny on udestiny.id = c.id_user_destiny
+                LEFT JOIN condominium.person pdestiny on pdestiny.id = udestiny.id_person
+            WHERE c.id_user_destiny is null
             ';
 
         $statement = $this->executeStatement($sql);
