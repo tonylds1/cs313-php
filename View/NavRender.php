@@ -17,7 +17,7 @@ class NavRender implements IRender
         $this->options = [
             new NavElement('/front.php/assignments', 'Assignments', null),
             new NavElement('/front.php/communication/list', 'Communications', null),
-            new NavElement('/front.php/shared-areas/list', 'Shared Areas', 0)
+            new NavElement('/front.php/shared-area/list', 'Shared Areas', 0)
         ];
     }
 
