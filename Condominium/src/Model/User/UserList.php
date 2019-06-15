@@ -3,8 +3,6 @@
 
 namespace cs313\Condominium\Model\User;
 
-use cs313\Condomimium\Model\User\UserDTO;
-
 class UserList
 {
     private $list;

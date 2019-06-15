@@ -2,9 +2,6 @@
 
 namespace cs313\Condominium\Model\User;
 
-use cs313\Condomimium\Model\User\User;
-use cs313\Condomimium\Model\User\UserDTO;
-
 interface UserRepositoryInterface
 {
     public function findAll(UserDTO $filter): array;

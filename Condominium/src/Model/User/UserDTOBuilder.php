@@ -1,8 +1,6 @@
 <?php
 
-namespace cs313\Condomimium\Model\User;
-
-use cs313\Condominium\Model\User\PersonDTO;
+namespace cs313\Condominium\Model\User;
 
 final class UserDTOBuilder
 {

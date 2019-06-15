@@ -1,5 +1,5 @@
 <?php
-namespace cs313\Condomimium\Model\User;
+namespace cs313\condominium\Model\User;
 
 final class User
 {
