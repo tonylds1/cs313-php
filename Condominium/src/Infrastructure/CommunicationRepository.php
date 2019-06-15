@@ -51,9 +51,11 @@ class CommunicationRepository extends Repository implements CommunicationReposit
         $statement = $this->executeStatement($sql);
 
         $result = [];
+        $builder = new CommunicationDTOBuilder(new UserDTOBuilder());
+
         while ($row = $statement->fetch(\PDO::FETCH_ASSOC))
         {
-            $result[] = new Communication($row['id'], $row['ds_name']);
+            $result[] = $builder->buildFromArray($row);
         }
 
         return $result;
