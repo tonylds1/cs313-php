@@ -2,11 +2,7 @@
 
 namespace cs313\Condominium\Model\Communication;
 
-use cs313\Condomimium\Model\User\User;
-use cs313\Condomimium\Model\User\UserDTO;
-use cs313\Condomimium\Model\User\UserDTOBuilder;
-use cs313\Condominium\Model\User\PersonDTO;
-use cs313\Condominium\Model\User\UserRepositoryInterface;
+use cs313\Condominium\Model\User\UserDTOBuilder;
 
 class CommunicationDTOBuilder
 {
