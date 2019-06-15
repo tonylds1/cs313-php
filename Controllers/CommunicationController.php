@@ -25,7 +25,6 @@ class CommunicationController extends  AbstractSimplexController
         try {
             $repository = new CommunicationRepository();
             $list = $repository->findBroadCast();
-            var_export($list);
             $render = new ListRender();
 
             return $this->render($render, ['list' => $list]);
