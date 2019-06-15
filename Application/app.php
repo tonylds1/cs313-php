@@ -4,6 +4,10 @@ use Symfony\Component\Routing;
 
 $routes = new Routing\RouteCollection();
 
+$routes->add('condominium_root', new Routing\Route('/condominium',[
+    '_controller' => 'cs313\Controllers\CommunicationController::communicationListAction'
+]));
+
 $routes->add('ops', new Routing\Route('/ops',[
     '_controller' => 'cs313\Controllers\AssignmentsController::opsAction'
 ]));

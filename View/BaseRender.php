@@ -38,7 +38,7 @@ class BaseRender implements IRender
             <script src="/js/bootstrap.min.js"></script>
         </head>
         <body>
-        <?php include 'nav.phtml'; ?>
+        <?php (new NavRender())->render(); ?>
         <?php if (isset($this->vars[SessionHandler::ERROR])): ?>
             <div class="alert alert-warning">
                 <strong>Error!</strong> <?= $this->vars[SessionHandler::ERROR] ?>
