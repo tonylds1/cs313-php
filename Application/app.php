@@ -3,6 +3,11 @@
 use Symfony\Component\Routing;
 
 $routes = new Routing\RouteCollection();
+
+$routes->add('ops', new Routing\Route('/ops',[
+    '_controller' => 'cs313\Controllers\AssignmentsController::opsAction'
+]));
+
 $routes->add('hello_world', new Routing\Route('/hello', [
     '_controller' => 'cs313\Controllers\AssignmentsController::week01Action'
 ]));
