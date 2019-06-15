@@ -4,14 +4,13 @@ namespace cs313\Controllers;
 
 use cs313\Condominium\Infrastructure\CommunicationRepository;
 use cs313\Condominium\Model\Communication\CommunicationDTO;
-use cs313\Condominium\Model\Communication\CommunicationList;
-use View\BaseRender;
-use View\CommunicationRender;
-use View\CommunicationsRender;
+use cs313\Condominium\Model\Communication\UserList;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use View\CommunicationUpdateRender;
+use View\Communication\ListRender;
+use View\Communication\SingleRender;
+use View\Communication\UpdateRender;
 
 class CommunicationController extends  AbstractSimplexController
 {
@@ -24,12 +23,15 @@ class CommunicationController extends  AbstractSimplexController
     {
         try {
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
-            $communicationFilter = new CommunicationDTO($id, $request->get('name'));
+            $communicationFilter = new CommunicationDTO(
+                $id,
+                $request->get('name')
+            );
 
             $repository = new CommunicationRepository();
-            $list = (new CommunicationList($communicationFilter, $repository))->getList();
+            $list = (new UserList($communicationFilter, $repository))->getList();
 
-            $render = new CommunicationsRender();
+            $render = new ListRender();
 
             return $this->render($render, ['list' => $list]);
         } catch (\Throwable $t) {
@@ -48,7 +50,7 @@ class CommunicationController extends  AbstractSimplexController
                 return new Response('No Shared Area with that Id');
             }
 
-            $render = new CommunicationRender();
+            $render = new SingleRender();
 
             return $this->render($render, ['communication' => $communication]);
         } catch (\Throwable $t) {
@@ -75,7 +77,7 @@ class CommunicationController extends  AbstractSimplexController
         try {
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
             $communication = (new CommunicationRepository())->findById($id);
-            $render = new CommunicationUpdateRender();
+            $render = new UpdateRender();
 
             return $this->render($render, ['communication' => $communication]);
         } catch (\Throwable $t) {

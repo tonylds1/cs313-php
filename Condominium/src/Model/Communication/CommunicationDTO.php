@@ -2,9 +2,9 @@
 
 namespace cs313\Condominium\Model\Communication;
 
-use cs313\Condomimium\Model\User\User;
+use cs313\Condomimium\Model\User\UserDTO;
 
-class Communication
+class CommunicationDTO
 {
     /**
      * @var int
@@ -12,12 +12,12 @@ class Communication
     private $id;
 
     /**
-     * @var User
+     * @var UserDTO
      */
     private $userOrigin;
 
     /**
-     * @var User
+     * @var UserDTO
      */
     private $userDestiny;
 
@@ -39,19 +39,19 @@ class Communication
     /**
      * Communication constructor.
      * @param int $id
-     * @param User $userOrigin
-     * @param User $userDestiny
+     * @param UserDTO $userOrigin
+     * @param UserDTO $userDestiny
      * @param string $text
      * @param \DateTime $creation
      * @param int $daysAvailable
      */
     public function __construct(
         int $id = null,
-        User $userOrigin = null,
-        User $userDestiny = null,
+        UserDTO $userOrigin = null,
+        UserDTO $userDestiny = null,
         string $text  = null,
         \DateTime $creation = null,
-        int $daysAvailable
+        int $daysAvailable = null
     ) {
         $this->id = $id;
         $this->userOrigin = $userOrigin;
@@ -64,23 +64,23 @@ class Communication
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
 
     /**
-     * @return User
+     * @return UserDTO
      */
-    public function getUserOrigin(): User
+    public function getUserOrigin(): ?UserDTO
     {
         return $this->userOrigin;
     }
 
     /**
-     * @return User
+     * @return UserDTO
      */
-    public function getUserDestiny(): User
+    public function getUserDestiny(): ?UserDTO
     {
         return $this->userDestiny;
     }
@@ -88,7 +88,7 @@ class Communication
     /**
      * @return string
      */
-    public function getText(): string
+    public function getText(): ?string
     {
         return $this->text;
     }
@@ -96,7 +96,7 @@ class Communication
     /**
      * @return \DateTime
      */
-    public function getCreation(): \DateTime
+    public function getCreation(): ?\DateTime
     {
         return $this->creation;
     }
@@ -104,7 +104,7 @@ class Communication
     /**
      * @return int
      */
-    public function getDaysAvailable(): int
+    public function getDaysAvailable(): ?int
     {
         return $this->daysAvailable;
     }

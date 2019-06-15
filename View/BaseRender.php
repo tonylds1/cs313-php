@@ -40,7 +40,7 @@ class BaseRender implements IRender
         <body>
         <?php include 'nav.phtml'; ?>
         <?php if (isset($this->vars[SessionHandler::ERROR])): ?>
-            <div class="alert alert-success">
+            <div class="alert alert-warning">
                 <strong>Error!</strong> <?= $this->vars[SessionHandler::ERROR] ?>
             </div>
         <?php endif; ?>
