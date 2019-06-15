@@ -7,9 +7,9 @@ class CommunicationList
 {
     private $list;
 
-    public function __construct(CommunicationDto $filter, CommunicationRepositoryInterface $repository)
+    public function __construct(array $list)
     {
-        $this->list = $repository->findAll($filter);
+        $this->list = $list;
     }
 
     public function getList()

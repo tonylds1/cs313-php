@@ -76,6 +76,7 @@ create table if not exists condominium.communication
     id serial primary key,
     id_user_origin int references condominium.user(id) not null,
     id_user_destiny int references condominium.user(id),
+    ds_title varchar(32),
     ds_text text,
     dt_creation date default now(),
     nu_days int

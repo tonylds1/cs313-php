@@ -4,6 +4,7 @@ namespace cs313\Controllers;
 
 use cs313\Condominium\Infrastructure\CommunicationRepository;
 use cs313\Condominium\Model\Communication\CommunicationDTO;
+use cs313\Condominium\Model\Communication\CommunicationList;
 use cs313\Condominium\Model\Communication\UserList;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,15 +23,8 @@ class CommunicationController extends  AbstractSimplexController
     public function communicationListAction(Request $request)
     {
         try {
-            $id = empty($request->get('id')) ? null : (int) $request->get('id');
-            $communicationFilter = new CommunicationDTO(
-                $id,
-                $request->get('name')
-            );
-
             $repository = new CommunicationRepository();
-            $list = (new UserList($communicationFilter, $repository))->getList();
-
+            $list = $repository->findBroadCast();
             $render = new ListRender();
 
             return $this->render($render, ['list' => $list]);

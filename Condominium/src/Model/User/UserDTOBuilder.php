@@ -22,7 +22,7 @@ final class UserDTOBuilder
         );
 
         return new UserDTO(
-            $userid ?? null,
+            $id ?? null,
             $userlogin ?? null,
             $password ?? null,
             $person ,

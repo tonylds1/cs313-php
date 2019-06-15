@@ -4,20 +4,21 @@ namespace cs313\Condominium\Model\Communication;
 
 use cs313\Condomimium\Model\User\User;
 use cs313\Condomimium\Model\User\UserDTO;
+use cs313\Condomimium\Model\User\UserDTOBuilder;
 use cs313\Condominium\Model\User\PersonDTO;
 use cs313\Condominium\Model\User\UserRepositoryInterface;
 
 class CommunicationDTOBuilder
 {
-    private $userRepository;
+    private $userDtoBuilder;
 
     /**
      * CommunicationDTOBuilder constructor.
-     * @param UserRepositoryInterface $userRepository
+     * @param UserDTOBuilder $userRepository
      */
-    public function __construct(UserRepositoryInterface $userRepository)
+    public function __construct(UserDTOBuilder $userDtoBuilder)
     {
-        $this->userRepository = $userRepository;
+        $this->userDtoBuilder = $userDtoBuilder;
     }
 
 
@@ -27,19 +28,20 @@ class CommunicationDTOBuilder
     public function buildFromArray(array $params)
     {
         extract($params, EXTR_SKIP);
-
-        $userOrigin = $this->userRepository->findById($useroriginid);
-        $userDestiny = $this->userRepository->findById($userdestinyid);
+        $now = new \DateTime();
+        $userOrigin = $this->userDtoBuilder->buildFromArray(['id' => $useroriginid]);
+        $userDestiny = $this->userDtoBuilder->buildFromArray(['id' => $userdestinyid]);
 
         return new CommunicationDTO(
-            $userid ?? null,
-            $userlogin ?? null,
-            $password ?? null,
-            $person ,
-            $now
+            $id ?? null,
+            $userOrigin,
+            $userDestiny,
+            $title ?? null,
+            $text ?? null,
+            $now,
+            $days ?? null,
+            $from ?? null,
+            $to ?? null
         );
-
-
-
     }
 }

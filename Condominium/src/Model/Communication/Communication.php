@@ -5,7 +5,7 @@ namespace cs313\Condominium\Model\Communication;
 
 use cs313\Condomimium\Model\User\User;
 
-class CommunicationDto
+class Communication
 {
     /**
      * @var int

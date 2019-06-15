@@ -24,6 +24,11 @@ class CommunicationDTO
     /**
      * @var string
      */
+    private $title;
+
+    /**
+     * @var string
+     */
     private $text;
 
     /**
@@ -37,28 +42,47 @@ class CommunicationDTO
     private $daysAvailable;
 
     /**
-     * Communication constructor.
-     * @param int $id
-     * @param UserDTO $userOrigin
-     * @param UserDTO $userDestiny
-     * @param string $text
-     * @param \DateTime $creation
-     * @param int $daysAvailable
+     * @var string
+     */
+    private $from;
+
+    /**
+     * @var string
+     */
+    private $to;
+
+    /**
+     * CommunicationDTO constructor.
+     * @param int|null $id
+     * @param UserDTO|null $userOrigin
+     * @param UserDTO|null $userDestiny
+     * @param string|null $title
+     * @param string|null $text
+     * @param \DateTime|null $creation
+     * @param int|null $daysAvailable
+     * @param string|null $from
+     * @param string|null $to
      */
     public function __construct(
         int $id = null,
         UserDTO $userOrigin = null,
         UserDTO $userDestiny = null,
+        string $title  = null,
         string $text  = null,
         \DateTime $creation = null,
-        int $daysAvailable = null
+        int $daysAvailable = null,
+        string $from = null,
+        string $to = null
     ) {
         $this->id = $id;
         $this->userOrigin = $userOrigin;
         $this->userDestiny = $userDestiny;
+        $this->title = $title;
         $this->text = $text;
         $this->creation = $creation;
         $this->daysAvailable = $daysAvailable;
+        $this->from = $from;
+        $this->to = $to;
     }
 
     /**
@@ -83,6 +107,14 @@ class CommunicationDTO
     public function getUserDestiny(): ?UserDTO
     {
         return $this->userDestiny;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
     }
 
     /**
@@ -120,7 +152,7 @@ class CommunicationDTO
     /**
      * @param User $userOrigin
      */
-    public function setUserOrigin(User $userOrigin): void
+    public function setUserOrigin(UserDto $userOrigin): void
     {
         $this->userOrigin = $userOrigin;
     }
@@ -128,9 +160,17 @@ class CommunicationDTO
     /**
      * @param User $userDestiny
      */
-    public function setUserDestiny(User $userDestiny): void
+    public function setUserDestiny(UserDTO $userDestiny): void
     {
         $this->userDestiny = $userDestiny;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
     }
 
     /**
@@ -155,5 +195,37 @@ class CommunicationDTO
     public function setDaysAvailable(int $daysAvailable): void
     {
         $this->daysAvailable = $daysAvailable;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFrom(): string
+    {
+        return $this->from;
+    }
+
+    /**
+     * @param string $from
+     */
+    public function setFrom(string $from): void
+    {
+        $this->from = $from;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTo(): string
+    {
+        return $this->to;
+    }
+
+    /**
+     * @param string $to
+     */
+    public function setTo(string $to): void
+    {
+        $this->to = $to;
     }
 }
