@@ -29,6 +29,7 @@ class CommunicationController extends  AbstractSimplexController
 
             return $this->render($render, ['list' => $list]);
         } catch (\Throwable $t) {
+            var_dump($t); exit;
             $this->sessionHandler->addErrorMessage($t->getMessage());
             return $this->redirect('/front.php/ops');
         }

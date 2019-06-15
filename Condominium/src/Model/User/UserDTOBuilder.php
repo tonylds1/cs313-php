@@ -1,4 +1,5 @@
 <?php
+
 namespace cs313\Condomimium\Model\User;
 
 use cs313\Condominium\Model\User\PersonDTO;
@@ -25,7 +26,7 @@ final class UserDTOBuilder
             $id ?? null,
             $userlogin ?? null,
             $password ?? null,
-            $person ,
+            $person,
             $now
         );
     }
