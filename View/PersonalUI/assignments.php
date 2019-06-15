@@ -12,11 +12,11 @@
 <body>
     <div class='container d-flex flex-column col-6  '>
         <div id="header justify-content-end">
-            <a href="personal" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Back</a>
+            <a href="personal" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">HOME</a>
         </div>
 
         <div id='slogan' class='justify-content-center'>
-            <a href="/front.php/communication/list" class='align-self-center'>WEEK 04 to 07 PONDER - CONDOMINIUM APP</a>
+            <a href="/front.php/communication/list" class='align-self-center'>04 through 07 - CONDOMINIUM APP</a>
         </div>
 
         <hr>
