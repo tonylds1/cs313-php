@@ -16,7 +16,7 @@
         </div>
 
         <div id='slogan' class='justify-content-center'>
-            <a href="week05" class='align-self-center'>WEEK 05 PONDER - ACCESS DATABASE</a>
+            <a href="/front.php/communication/list" class='align-self-center'>WEEK 05 PONDER - ACCESS DATABASE</a>
         </div>
 
         <hr>
