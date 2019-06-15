@@ -88,8 +88,8 @@ class CommunicationRepository extends Repository implements CommunicationReposit
         $statement = $this->executeStatement($sql);
 
         $result = [];
-
-        $builder = new CommunicationDTOBuilder(new UserDTOBuilder());
+        $userBuilder = new UserDTOBuilder();
+        $builder = new CommunicationDTOBuilder($userBuilder);
 
         while ($row = $statement->fetch(\PDO::FETCH_ASSOC))
         {
