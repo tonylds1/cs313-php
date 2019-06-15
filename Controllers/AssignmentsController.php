@@ -3,6 +3,7 @@
 namespace cs313\Controllers;
 
 use Symfony\Component\HttpFoundation\Request;
+use View\OpsRender;
 
 class AssignmentsController extends  AbstractSimplexController
 {
@@ -14,5 +15,10 @@ class AssignmentsController extends  AbstractSimplexController
     public function week01Action(Request $request)
     {
         return $this->renderPath('CondominiumUI/hello');
+    }
+
+    public function opsAction(Request $request)
+    {
+        return $this->render(new OpsRender());
     }
 }

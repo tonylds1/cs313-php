@@ -5,6 +5,7 @@ namespace cs313\Controllers;
 use cs313\Condominium\Infrastructure\SharedAreaRepository;
 use cs313\Condominium\Model\SharedArea\SharedAreaDTO;
 use cs313\Condominium\Model\SharedArea\CommunicationList;
+use cs313\Condominium\Model\SharedArea\SharedAreaList;
 use View\BaseRender;
 use View\SharedAreaRender;
 use View\SharedAreasRender;
@@ -27,7 +28,7 @@ class SharedAreaController extends  AbstractSimplexController
             $sharedAreaFilter = new SharedAreaDTO($id, $request->get('name'));
 
             $repository = new SharedAreaRepository();
-            $list = (new CommunicationList($sharedAreaFilter, $repository))->getList();
+            $list = (new SharedAreaList($sharedAreaFilter, $repository))->getList();
 
             $render = new SharedAreasRender();
 
@@ -73,7 +74,7 @@ class SharedAreaController extends  AbstractSimplexController
     public function sharedAreaUpdateAction(Request $request)
     {
         try {
-            throw new Exception("meu Nome é Tony");
+            throw new \Exception("meu Nome é Tony");
             $id = empty($request->get('id')) ? null : (int) $request->get('id');
             $sharedArea = (new SharedAreaRepository())->findById($id);
             $render = new SharedAreaUpdateRender();
