@@ -3,7 +3,7 @@
 
 namespace cs313\Condominium\Model\Communication;
 
-use cs313\Condomimium\Model\User\User;
+use cs313\condominium\Model\User\User;
 
 class Communication
 {
