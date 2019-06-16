@@ -2,18 +2,11 @@
 
 namespace cs313\Controllers;
 
-use cs313\Condominium\Infrastructure\CommunicationRepository;
 use cs313\Condominium\Infrastructure\UserRepository;
-use cs313\Condominium\Model\Communication\CommunicationDTO;
 use cs313\Condominium\Model\Communication\UserList;
 use cs313\condominium\Model\User\UserDTO;
-use mysql_xdevapi\Exception;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use View\Communication\ListRender;
-use View\Communication\SingleRender;
-use View\Communication\UpdateRender;
 
 class AuthenticationController extends  AbstractSimplexController
 {
@@ -43,6 +36,7 @@ var_dump($teste); exit;
             $this->sessionHandler->addLoggedUser($userDto);
 
         } catch (\Throwable $t) {
+            var_dump($t); exit;
             $this->sessionHandler->addErrorMessage($t->getMessage());
         } finally {
             return new RedirectResponse($urlBack);
