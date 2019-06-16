@@ -25,7 +25,11 @@ class AuthenticationController extends  AbstractSimplexController
             $builder = new UserDTOBuilder();
             $user = $builder->buildEmpty();
             $user->setLogin($login);
+            var_dump($password);
+            $teste = password_hash($password, PASSWORD_DEFAULT);
+            var_dump($teste);
             $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
+            var_dump($user->getPassword()); exit;
             $repository = new UserRepository();
             $userDto = $repository->findOne($user);
 

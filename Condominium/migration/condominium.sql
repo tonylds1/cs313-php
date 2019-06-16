@@ -148,3 +148,4 @@ VALUES
 ((select id from condominium.user where ds_login = 'joseph'), (select id from condominium.role where ds_name = 'user'))
 ;
 
+update condominium."user" set ds_password = '$2y$10$U5xe7gWtRrSfv3GtekoVeeSCuZA75YE1DWwM8NYdcxJ5PNWJe5/8G'
