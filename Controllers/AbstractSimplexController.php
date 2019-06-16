@@ -24,7 +24,8 @@ abstract class AbstractSimplexController
     protected function renderPath(string $path, array $parameters = [])
     {
         ob_start();
-        $parameters['loggedUser'] = $this->sessionHandler->getLoggedUser();
+        $loggedUser = $this->sessionHandler->getLoggedUser();
+
         extract($parameters, EXTR_SKIP);
         include sprintf(__DIR__ . '/../View/%s.php', $path);
 
@@ -37,6 +38,7 @@ abstract class AbstractSimplexController
             $parameters[SessionHandler::ERROR] = $this->sessionHandler->printErrorMessage();
         }
 
+        $loggedUser = $this->sessionHandler->getLoggedUser();
         $baseRender = new BaseRender($render, $parameters);
 
         return new Response($baseRender->render());
