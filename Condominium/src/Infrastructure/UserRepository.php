@@ -32,7 +32,7 @@ class UserRepository extends Repository implements UserRepositoryInterface
         if ($filter->getPerson()->getEmail()) {
             $sql .= 'and lower(p.ds_email) like lower(\'%'.$filter->getPerson()->getEmail().'%\')';
         }
-
+var_dump($sql); exit;
         $statement = $this->executeStatement($sql);
         $row = $statement->fetch(\PDO::FETCH_ASSOC);
 
