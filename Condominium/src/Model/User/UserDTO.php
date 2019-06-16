@@ -1,5 +1,5 @@
 <?php
-namespace cs313\condominium\Model\User;
+namespace cs313\Condominium\Model\User;
 
 final class UserDTO
 {
