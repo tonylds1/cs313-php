@@ -78,5 +78,8 @@ $routes->add('login', new Routing\Route(
     [],[],'', [], ['POST']
 ));
 
-
+$routes->add('logout', new Routing\Route(
+    '/authentication/login',
+    ['_controller' => 'cs313\Controllers\AuthenticationController::logoutAction']
+));
 return $routes;
