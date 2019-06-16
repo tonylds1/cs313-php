@@ -23,6 +23,7 @@ class NavRender implements IRender
 
     public function render(array $vars = [])
     {
+        extract($vars, EXTR_SKIP);
 ?>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Navbar</a>
