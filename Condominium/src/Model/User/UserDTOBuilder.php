@@ -9,6 +9,8 @@ final class UserDTOBuilder
         $person = new PersonDTO();
         $user = new UserDTO();
         $user->setPerson($person);
+
+        return $user;
     }
 
     public function buildFromArray(array $params): UserDTO
