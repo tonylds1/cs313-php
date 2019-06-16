@@ -41,8 +41,10 @@ class NavRender implements IRender
                 </ul>
                 <?php if ($loggedUser) : ?>
                 <div class="my-2 my-lg-0">
-                    <span class="fa fa-user-md"></span> Welcome <strong><?= $loggedUser->getPerson()->getFullName(); ?></strong>
-                    <a class="nav-link" href="/front.php/condominium/list"><span class="fa fa-sign-out"></span>Logout</a>
+                    <a class="nav-link" href="/front.php/condominium/list">
+                        <span class="fa fa-user-md"></span> Welcome <strong><?= $loggedUser->getPerson()->getFullName(); ?></strong>
+                    </a>
+                    <a class="nav-link" href="/front.php/authentication/logout"><span class="fa fa-sign-out"></span>Logout</a>
                 </div>
                 <?php else: ?>
                 <form class="form-inline my-2 my-lg-0" action="/front.php/authentication/login" method="post">
