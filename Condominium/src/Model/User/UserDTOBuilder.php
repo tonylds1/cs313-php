@@ -4,6 +4,13 @@ namespace cs313\Condominium\Model\User;
 
 final class UserDTOBuilder
 {
+    public function buildEmpty()
+    {
+        $person = new PersonDTO();
+        $user = new UserDTO();
+        $user->setPerson($person);
+    }
+
     public function buildFromArray(array $params): UserDTO
     {
         extract($params, EXTR_SKIP);
