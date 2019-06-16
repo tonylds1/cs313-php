@@ -38,7 +38,7 @@ abstract class AbstractSimplexController
             $parameters[SessionHandler::ERROR] = $this->sessionHandler->printErrorMessage();
         }
 
-        $loggedUser = $this->sessionHandler->getLoggedUser();
+        $parameters['loggedUser'] = $this->sessionHandler->getLoggedUser();
         $baseRender = new BaseRender($render, $parameters);
 
         return new Response($baseRender->render());
