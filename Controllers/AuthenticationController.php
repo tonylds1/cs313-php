@@ -56,4 +56,4 @@ var_dump($teste); exit;
 
         return new RedirectResponse($urlBack);
     }
-d}
+}
