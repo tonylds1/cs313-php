@@ -45,8 +45,7 @@ final class UserDTOBuilder
             $row['name'],
             $row['email'],
             $row['phone'],
-            $row['gender'],
-            $row['birth']
+            $row['gender']
         );
 
         return new UserDto(
