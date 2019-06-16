@@ -5,7 +5,7 @@
     <?php foreach ($list as $communication): ?>
     <hr>
     <h1><?=$communication->getTitle(); ?></h1>
-    <h3><?=$communication->getFrom(); ?></h3>
+    <h3>From: <?=$communication->getFrom(); ?></h3>
     <p><?=$communication->getText(); ?></p>
     <hr>
     <?php endforeach; ?>

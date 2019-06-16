@@ -18,7 +18,7 @@ class AuthenticationController extends  AbstractSimplexController
     public function loginAction(Request $request)
     {
         $teste = $request->getRequestUri();
-        dump($teste); exit;
+        var_dump($teste); exit;
 
         return new RedirectResponse('/front.php/communication/list');
     }
@@ -26,7 +26,7 @@ class AuthenticationController extends  AbstractSimplexController
     public function login2Action(Request $request)
     {
 
-        dump('alsdkjfadf'); exit;
+        var_dump('alsdkjfadf'); exit;
 
         return new RedirectResponse('/front.php/communication/list');
     }
