@@ -79,7 +79,7 @@ $routes->add('login', new Routing\Route(
 ));
 
 $routes->add('logout', new Routing\Route(
-    '/authentication/login',
+    '/authentication/logout',
     ['_controller' => 'cs313\Controllers\AuthenticationController::logoutAction']
 ));
 return $routes;
