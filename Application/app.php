@@ -78,10 +78,5 @@ $routes->add('login', new Routing\Route(
     [],[],'', [], ['POST']
 ));
 
-$routes->add('login', new Routing\Route(
-    '/authentication/login',
-    ['_controller' => 'cs313\Controllers\AuthenticationController::login2Action'],
-    [],[],'', [], ['GET']
-));
 
 return $routes;
