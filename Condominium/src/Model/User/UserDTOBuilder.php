@@ -46,16 +46,14 @@ final class UserDTOBuilder
             $row['email'],
             $row['phone'],
             $row['gender'],
-            $row['birth'],
-            $row['pcreated']
+            $row['birth']
         );
 
         return new UserDto(
             $row['userid'],
             $row['login'],
             $row['password'],
-            $person,
-            $row['ucreated']
+            $person
         );
     }
 }
