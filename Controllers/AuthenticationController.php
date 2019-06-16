@@ -17,10 +17,10 @@ class AuthenticationController extends  AbstractSimplexController
 {
     public function loginAction(Request $request)
     {
-        $teste = $request->server->get('HTTP_REFERER');
-        var_dump($teste); exit;
+        $urlBack = $request->server->get('HTTP_REFERER');
+        $this->sessionHandler->addErrorMessage('Fala sério');
 
-        return new RedirectResponse('/front.php/communication/list');
+        return new RedirectResponse($urlBack);
     }
 
     public function login2Action(Request $request)
