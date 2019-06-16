@@ -24,8 +24,6 @@ class AuthenticationController extends  AbstractSimplexController
             $user = new UserDTO();
             $user->setLogin($login);
             $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
-$teste = $user->getPassword();
-var_dump($teste); exit;
             $repository = new UserRepository();
             $userDto = $repository->findOne($user);
 
@@ -36,7 +34,6 @@ var_dump($teste); exit;
             $this->sessionHandler->addLoggedUser($userDto);
 
         } catch (\Throwable $t) {
-            var_dump($t); exit;
             $this->sessionHandler->addErrorMessage($t->getMessage());
         } finally {
             return new RedirectResponse($urlBack);

@@ -42,7 +42,7 @@ create table if not exists condominium.user
 (
     id serial PRIMARY KEY,
     ds_login varchar(32) unique,
-    ds_password varchar(32),
+    ds_password varchar(64),
     id_person int references condominium.person(id),
     dt_creation date default now()
 );
@@ -148,15 +148,3 @@ VALUES
 ((select id from condominium.user where ds_login = 'joseph'), (select id from condominium.role where ds_name = 'user'))
 ;
 
-select * from condominium.person p
-join condominium.user u on u.id_person = p.id
-join condominium.person_skill ps on ps.id_person = p.id
-join condominium.skill s on s.id = ps.id_skill
-
-select * from condominium.user u
-join condominium.person p on p.id = u.id_person
-where u.id is not null
-and lower(u.ds_login) = lower('tonylds1')
-and u.ds_password = '123abc'
-and lower(p.ds_fullname) like lower('%tony%')
-and lower(p.ds_email) like lower('%tony%')
