@@ -38,25 +38,24 @@ final class UserDTOBuilder
         );
     }
 
-    public function buildFromEntity(User $user)
+    public function buildFromEntity(array $row)
     {
-        $person = $user->getPerson();
         $person = new PersonDTO(
-            $person->getId(),
-            $person->getName(),
-            $person->getEmail(),
-            $person->getPhone(),
-            $person->getGender(),
-            $person->getBirthday(),
-            $person->getCreated()
+            $row['personid'],
+            $row['name'],
+            $row['email'],
+            $row['phone'],
+            $row['gender'],
+            $row['birth'],
+            $row['pcreated']
         );
 
         return new UserDto(
-            $user->getId(),
-            $user->getLogin(),
-            $user->getPassword(),
+            $row['userid'],
+            $row['login'],
+            $row['password'],
             $person,
-            $user->getCreation()
+            $row['ucreated']
         );
     }
 }

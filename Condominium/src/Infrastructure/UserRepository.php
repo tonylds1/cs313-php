@@ -12,7 +12,19 @@ class UserRepository extends Repository implements UserRepositoryInterface
     public function findOne(UserDTO $filter): ?UserDTO
     {
         $sql = '
-            select * from condominium.user u
+            select
+                u.id as userid,
+                u.ds_login as login,
+                u.ds_password as password,
+                u.dt_creation as ucreated,
+                p.id as personid,
+                p.ds_fullname as name,
+                p.ds_email as email,
+                p.ds_fone as phone,
+                p.dt_birth as birth,
+                p.gender as gender,
+                p.dt_creation as pcreated
+            from condominium.user u
             join condominium.person p on p.id = u.id_person
             where u.id is not null
             ';
