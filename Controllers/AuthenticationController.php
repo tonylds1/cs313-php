@@ -4,7 +4,7 @@ namespace cs313\Controllers;
 
 use cs313\Condominium\Infrastructure\UserRepository;
 use cs313\Condominium\Model\Communication\UserList;
-use cs313\condominium\Model\User\UserDTO;
+use cs313\Condominium\Model\User\UserDTO;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
