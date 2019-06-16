@@ -39,8 +39,8 @@ class NavRender implements IRender
                     <?php endforeach; ?>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="/front.php/authentication/login" method="post">
-                    <input class="form-control mr-sm-2" type="login" placeholder="Login" aria-label="Login">
-                    <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
+                    <input class="form-control mr-sm-2" name="login" type="login" placeholder="Login" aria-label="Login">
+                    <input class="form-control mr-sm-2" name='password' type="password" placeholder="Password" aria-label="Password">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
                 </form>
             </div>
