@@ -153,3 +153,10 @@ join condominium.user u on u.id_person = p.id
 join condominium.person_skill ps on ps.id_person = p.id
 join condominium.skill s on s.id = ps.id_skill
 
+select * from condominium.user u
+join condominium.person p on p.id = u.id_person
+where u.id is not null
+and lower(u.ds_login) = lower('tonylds1')
+and u.ds_password = '123abc'
+and lower(p.ds_fullname) like lower('%tony%')
+and lower(p.ds_email) like lower('%tony%')

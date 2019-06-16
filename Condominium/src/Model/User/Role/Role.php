@@ -1,7 +1,7 @@
 <?php
 
 
-namespace cs313\Condominium\Model\Role;
+namespace cs313\Condominium\Model\User;
 
 /**
  * Class Role
