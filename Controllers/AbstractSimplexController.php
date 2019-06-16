@@ -24,6 +24,8 @@ abstract class AbstractSimplexController
     protected function renderPath(string $path, array $parameters = [])
     {
         ob_start();
+        $loggedUser = $this->sessionHandler->getLoggedUser();
+
         extract($parameters, EXTR_SKIP);
         include sprintf(__DIR__ . '/../View/%s.php', $path);
 

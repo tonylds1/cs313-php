@@ -38,11 +38,18 @@ class NavRender implements IRender
                         </li>
                     <?php endforeach; ?>
                 </ul>
+                <?php if ($loggedUser) : ?>
+                <div class="my-2 my-lg-0">
+                    <span class="fa fa-user-md"></span> Welcome <strong><?= $loggedUser->getPerson()->getFullName(); ?></strong>
+                    <a class="nav-link" href="/front.php/condominium/list"><span class="fa fa-sign-out"></span>Logout</a>
+                </div>
+                <?php else: ?>
                 <form class="form-inline my-2 my-lg-0" action="/front.php/authentication/login" method="post">
                     <input class="form-control mr-sm-2" name="login" type="login" placeholder="Login" aria-label="Login">
                     <input class="form-control mr-sm-2" name='password' type="password" placeholder="Password" aria-label="Password">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
                 </form>
+                <?php endif; ?>
             </div>
         </nav>
 <?php

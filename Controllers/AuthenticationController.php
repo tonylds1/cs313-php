@@ -6,6 +6,7 @@ use cs313\Condominium\Infrastructure\UserRepository;
 use cs313\Condominium\Model\Communication\UserList;
 use cs313\Condominium\Model\User\UserDTO;
 use cs313\Condominium\Model\User\UserDTOBuilder;
+use mysql_xdevapi\Exception;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -14,6 +15,10 @@ class AuthenticationController extends  AbstractSimplexController
     public function loginAction(Request $request)
     {
         try {
+            if ($this->sessionHandler->getLoggedUser()) {
+                throw new Exception('You are already logged in.');
+            }
+
             $urlBack = $request->server->get('HTTP_REFERER');
             $login = $request->get('login');
             $password = $request->get('password');
