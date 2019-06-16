@@ -17,7 +17,7 @@ class AuthenticationController extends  AbstractSimplexController
 {
     public function loginAction(Request $request)
     {
-        $teste = $request->getRequestUri();
+        $teste = $request->server->get('HTTP_REFERER');
         var_dump($teste); exit;
 
         return new RedirectResponse('/front.php/communication/list');
